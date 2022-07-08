@@ -5,6 +5,7 @@ import { createGlobalStyle, DefaultTheme } from 'styled-components'
 export const GlobalStyle = createGlobalStyle<{ theme: DefaultTheme }>`
 *{
     box-sizing : border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html{

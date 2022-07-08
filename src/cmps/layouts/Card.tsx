@@ -6,7 +6,6 @@ const StyledCard = styled.article`
 	color: ${(props) => props.theme.colors.darkColor};
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	box-shadow: ${(props) => props.theme.boxShadows.bs2};
 
 	@media only screen and (max-width: ${(props) =>	props.theme.breakpoints.mobile}) {
