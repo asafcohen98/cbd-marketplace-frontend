@@ -17,10 +17,6 @@ async function getCategories(): Promise<ICategory[]> {
     try {
         const res = await axios.get('https://cba-backend.herokuapp.com/api/category/')
         let { data: { results } } = res
-        // filter the all category for now 
-        results[0].children.pop()
-        results[1].children.pop()
-        //
         const categories = results.map(res => {
             const { name, children } = res
             return {

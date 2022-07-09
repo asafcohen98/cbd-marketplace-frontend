@@ -3,24 +3,21 @@ import styled from 'styled-components'
 
 import { ImgContainer } from './layouts/ImgContainer'
 
-const ProductImgContainer = styled.a`
-	:hover {
-		filter: grayscale(80%);
-		transition: filter 0.5s;
+const Image = styled.img`
+	transition: transform  0.5s ease-in-out;
+	&:hover {
+		transform: scale(1.1);
 	}
 `
 
 interface IProductImgProps {
 	imgSrc: string
-	productLink: string
 }
 
-export const ProductImg: FC<IProductImgProps> = ({ imgSrc, productLink }) => {
+export const ProductImg: FC<IProductImgProps> = ({ imgSrc }) => {
 	return (
-		<ProductImgContainer href={productLink} target='_blank' rel='noreferrer'>
-			<ImgContainer>
-				<img src={imgSrc} alt='cbd' />
-			</ImgContainer>
-		</ProductImgContainer>
+		<ImgContainer>
+			<Image src={imgSrc} alt='cbd' />
+		</ImgContainer>
 	)
 }

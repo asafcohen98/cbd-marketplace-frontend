@@ -40,7 +40,7 @@ export const ProductPreview: FC<IProductPreviewProps> = ({ product }) => {
 
 	return (
 		<Card>
-			<ProductImg imgSrc={product.imgSrc} productLink={product.productLink} />
+			<ProductImg imgSrc={product.imgSrc}/>
 			<ProductContentContainer>
 				<ProductReviewContainer>
 					<ProductScore

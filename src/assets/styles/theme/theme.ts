@@ -21,7 +21,7 @@ export const theme: DefaultTheme = {
     },
     colors: {
         brandDarkColor: "#004b23",
-        brandLightColor: "#cdff2f",
+        brandLightColor: "#c1e153",
         lightColor: "#fff",
         darkColor: "#222831",
         mutedColor: '#c8c8c8'

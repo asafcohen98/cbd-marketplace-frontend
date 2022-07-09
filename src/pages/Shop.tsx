@@ -148,7 +148,6 @@ export const Shop: FC = () => {
 		}
 		setFilterBy(newFilter)
 		setSearchParams(queryParams)
-		setIsFilterPanelOpen(false)
 		loadProducts(newFilter)
 	}, [])
 

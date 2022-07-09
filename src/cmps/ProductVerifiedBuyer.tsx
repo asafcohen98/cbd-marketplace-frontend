@@ -15,10 +15,6 @@ const VerifiedBuyerContainer = styled.div`
 		color: ${(props) => props.theme.colors.darkColor};;;
 	}
 
-	> *:not(:last-child) {
-		margin-inline-end: 0.2rem;
-	}
-
 	svg {
 		fill: ${(props) => props.theme.colors.darkColor};
 	}
