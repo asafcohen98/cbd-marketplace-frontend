@@ -2,76 +2,72 @@ import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import heroBackground from '../assets/imgs/bg.png'
+import { ReactComponent as CartoonsSvg } from '../assets/imgs/cartoons.svg'
 import { MainLayout } from './layouts/MainLayout'
 
 import { PrimaryButton } from './PrimaryButton'
 
 const HeroContainer = styled.section`
+	width: 100%;
 	position: relative;
 	display: flex;
 	justify-content: center;
-	height: 90vh;
 	margin-bottom: 2rem;
+	height: 100vh;
 	flex-direction: column;
-	background-image: url(${heroBackground});
-	background-attachment: fixed;
-`
-
-const HeroOverlay = styled.div`
-	background-color: #fffffff1;
-	border-top-right-radius: 100rem;
-	width: 90%;
-	height: 100%;
-	position: absolute;
-	inset: 0;
+	background: linear-gradient(
+		180deg,
+		#0c4d30 -0.4%,
+		#0c4a2e 30.56%,
+		#0a4028 54.85%,
+		#072f1e 76.87%,
+		#04180f 97.42%,
+		#000000 113.58%
+	);
 `
 const HeroContent = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-
 	> *:not(:last-child) {
 		margin-bottom: 1.5rem;
 	}
 `
 
 const HeroTitle = styled.h1`
-	color: ${(props) => props.theme.colors.darkColor};
-	font-size: 3rem;
+    max-width: 15ch;
+	color: ${(props) => props.theme.colors.lightColor};
+	font-size: 3.5rem;
 	margin: 0;
-	line-height: 1.5rem;
+	line-height: 4rem;
 `
 
 const DotSpan = styled.span`
-	color : ${props => props.theme.colors.brandLightColor}
+	color: ${(props) => props.theme.colors.lightColor};
 `
-
-const HeroParagraph = styled.p`
-	margin: 0;
-	font-family: Mukta-Light, sans-serif;
-	max-width: 102ch;
+const HeroSvg = styled(CartoonsSvg)`
+	position: absolute;
+	width: 100%;
+	right: 0;
+	bottom: -7.5rem;
 `
 
 export const Hero: FC = () => {
 	return (
 		<HeroContainer className='full'>
-			<HeroOverlay />
 			<MainLayout>
 				<HeroContent>
-					<HeroTitle>Discover the Best CBD Products online<DotSpan>.</DotSpan></HeroTitle>
-					<HeroParagraph>
-						With thousands of cannabidiol (CBD) products, CBDgle makes it easy
-						to find the highest-quality CBD products designed just for your
-						needs. So whether you want to help your furry friend live their best
-						life with our CBD PETS line or you want to find the best CBD brands
-						online all in one place for you.
-					</HeroParagraph>
+					<HeroTitle>
+						Discover the Best CBD Products<DotSpan>.</DotSpan>
+					</HeroTitle>
 					<PrimaryButton as={Link} to='/shop'>
 						Shop now
 					</PrimaryButton>
 				</HeroContent>
 			</MainLayout>
+			<div className='full'>
+				<HeroSvg />
+			</div>
 		</HeroContainer>
 	)
 }

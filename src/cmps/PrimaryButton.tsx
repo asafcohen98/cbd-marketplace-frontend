@@ -2,14 +2,16 @@ import { FC, ReactNode } from 'react'
 import styled from 'styled-components'
 
 const StyledButton = styled.button`
+cursor: pointer;
 	color: ${(props) => props.theme.colors.darkColor};
-	background-color: ${(props) => props.theme.colors.brandLightColor};
+	background-color: ${(props) => props.theme.colors.lightColor};
 	padding: 0.5em 1em;
 	font-size: 1.2rem;
+	z-index: 50;
 
 	:hover {
-		color: ${(props) => props.theme.colors.brandLightColor};
-		background-color: ${(props) => props.theme.colors.darkColor};
+		color: ${(props) => props.theme.colors.darkColor};
+		background-color: ${(props) => props.theme.colors.lightColor};
 		transition: all .6s ease-in-out;
 	}
 `

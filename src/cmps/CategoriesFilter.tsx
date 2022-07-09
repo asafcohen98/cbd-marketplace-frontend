@@ -32,7 +32,7 @@ const SubCategoriesContainer = styled.div<ICategoryNameProps>`
 	display: flex;
 	flex-direction: column;
 	margin-inline-start: 2rem;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in;
 `
 
 
@@ -42,7 +42,7 @@ const SubCategoryTitle = styled.div<ICategoryNameProps>`
 			? props.theme.colors.brandLightColor
 			: props.theme.colors.darkColor};
 	font-weight: ${(props) => (props.isActive ? 'bolder' : 'unset')};
-	transition: max-height 0.5 ease-in-out;
+	transition: max-height 0.3s ease-in-out;
 `
 
 const TopCategory = styled.div<ICategoryNameProps>`

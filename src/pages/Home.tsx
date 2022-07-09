@@ -7,7 +7,7 @@ export const Home: FC = () => {
 	return (
 		<>
 			<Hero />
-            <HowItWorks />
+            {/* <HowItWorks /> */}
 		</>
 	)
 }
