@@ -30,6 +30,7 @@ p{
 }
 
 a{
+    color: ${props => props.theme.colors.lightColor};
     outline: none;
     text-decoration: none;
     text-align: center;

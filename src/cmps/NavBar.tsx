@@ -10,20 +10,16 @@ const StyledNavBar = styled.nav`
 `
 
 const StyledLink = styled.a`
-	color: ${(props) => props.theme.colors.darkColor};
 	text-decoration: none;
 	font-size: 1.2rem;
-
-	*:visited{
-		color: ${(props) => props.theme.colors.darkColor};
-	}
 `
 
 export const NavBar: FC = () => {
 	// links from react-router later...
 	return (
 		<StyledNavBar>
-			{/* <StyledLink href='#howItWorks'>How it works</StyledLink> */}
+			<StyledLink href='#about'>About</StyledLink>
+			<StyledLink href='#howItWorks'>How it works</StyledLink>
 		</StyledNavBar>
 	)
 }

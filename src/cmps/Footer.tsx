@@ -6,7 +6,6 @@ import { MainLayout } from './layouts/MainLayout'
 import { Logo } from './Logo'
 
 const FooterContainer = styled.footer`
-	box-shadow: ${(props) => props.theme.boxShadows.bs2};
 `
 
 const FooterContent = styled.div`

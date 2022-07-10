@@ -26,16 +26,18 @@ const HeroContainer = styled.section`
 	);
 `
 const HeroContent = styled.div`
+
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	> *:not(:last-child) {
 		margin-bottom: 1.5rem;
 	}
+	z-index: 10;
 `
 
 const HeroTitle = styled.h1`
-    max-width: 15ch;
+	max-width: 15ch;
 	color: ${(props) => props.theme.colors.lightColor};
 	font-size: 3.5rem;
 	margin: 0;
@@ -45,11 +47,12 @@ const HeroTitle = styled.h1`
 const DotSpan = styled.span`
 	color: ${(props) => props.theme.colors.lightColor};
 `
-const HeroSvg = styled(CartoonsSvg)`
+
+const StyledCartoonsSvg = styled(CartoonsSvg)`
 	position: absolute;
-	width: 100%;
+	width: 100vw;
 	right: 0;
-	bottom: -7.5rem;
+	bottom: -1rem;
 `
 
 export const Hero: FC = () => {
@@ -65,9 +68,8 @@ export const Hero: FC = () => {
 					</PrimaryButton>
 				</HeroContent>
 			</MainLayout>
-			<div className='full'>
-				<HeroSvg />
-			</div>
+			{/* <StyledVectorSvg /> */}
+			<StyledCartoonsSvg/>
 		</HeroContainer>
 	)
 }

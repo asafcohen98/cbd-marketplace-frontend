@@ -9,7 +9,6 @@ const VerifiedBuyerContainer = styled.div`
 	padding: 0 0.3rem;
 	display: flex;
 	align-items: center;
-	background-color: ${props => props.theme.colors.brandLightColor};
 
 	span:last-of-type {
 		color: ${(props) => props.theme.colors.darkColor};;;

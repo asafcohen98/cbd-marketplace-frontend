@@ -12,15 +12,14 @@ const LogoContainer = styled(Link)`
 const StyledName = styled.h1`
 	margin: 0;
 	margin-inline-start: 0.8rem;
-	color: ${(props) => props.theme.colors.lightColor};
-	font-size: 1.5rem;
+	font-size: 2rem;
 `
 
 export const Logo: FC = () => {
 	return (
 		<LogoContainer to='/'>
 			<LogoSymbol />
-			<StyledName>CBDgle</StyledName>
+			<StyledName>CBDiff</StyledName>
 		</LogoContainer>
 	)
 }
