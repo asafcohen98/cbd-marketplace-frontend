@@ -47,11 +47,10 @@ export const Shop: FC = () => {
 
 	const loadProducts = useCallback(async (filterBy: IFilterBy) => {
 		try {
-			setIsLoading(true)
 			const [products, totalPages] = await productService.getProducts(filterBy)
+			setIsLoading(true)
 			setProducts(products)
 			setPageCount(+totalPages)
-			setIsLoading(false)
 		} catch (err) {
 			console.error(`[Error in loadProducts] : ${err}`)
 			setErrorMsg(err)
@@ -63,7 +62,6 @@ export const Shop: FC = () => {
 			setIsLoading(true)
 			const categories = await productService.getCategories()
 			setCategories(categories)
-			setIsLoading(false)
 		} catch (err) {
 			console.error(`[Error in loadCategories] : ${err}`)
 			setErrorMsg(err)
@@ -75,7 +73,6 @@ export const Shop: FC = () => {
 			setIsLoading(true)
 			const benefits = await productService.getBenefits()
 			setBenefits(benefits)
-			setIsLoading(false)
 		} catch (err) {
 			console.error(`[Error in loadBenefits] : ${err}`)
 			setErrorMsg(err)
@@ -92,8 +89,8 @@ export const Shop: FC = () => {
 					key === 'page'
 						? +filterFromQuery[key]
 						: key === 'benefits'
-							? filterFromQuery[key].split(',').filter((str) => str)
-							: filterFromQuery[key]
+						? filterFromQuery[key].split(',').filter((str) => str)
+						: filterFromQuery[key]
 			}
 			return copyOfFilterBy
 		} else {
@@ -103,15 +100,20 @@ export const Shop: FC = () => {
 
 	useEffect(() => {
 		console.log('mounted !')
-		loadCategories()
-		loadBenefits()
-		const filtersFromSearchParams = getFiltersFromSearchParams
-		if (filtersFromSearchParams) setFilterBy(filtersFromSearchParams)
-		loadProducts(filtersFromSearchParams ? filtersFromSearchParams : filterBy)
+		;(async () => {
+			await loadCategories()
+			await loadBenefits()
+			const filtersFromSearchParams = getFiltersFromSearchParams
+			if (filtersFromSearchParams) setFilterBy(filtersFromSearchParams)
+			await loadProducts(
+				filtersFromSearchParams ? filtersFromSearchParams : filterBy
+			)
+			setIsLoading(false)
+		})()
 	}, [])
 
 	const onSetFilter = useCallback(
-		(field, value) => {
+		async (field, value) => {
 			value =
 				value instanceof Object && !Array.isArray(value) ? { ...value } : value
 			value = Array.isArray(value) ? [...value] : value
@@ -126,12 +128,13 @@ export const Shop: FC = () => {
 			setFilterBy(newFilter)
 			setSearchParams(queryParams)
 			if (field === 'category') setIsFilterPanelOpen(false)
-			loadProducts(newFilter)
+			await loadProducts(newFilter)
+			setIsLoading(false)
 		},
 		[filterBy]
 	)
 
-	const clearFilter = useCallback(() => {
+	const clearFilter = useCallback(async () => {
 		const newFilter = {
 			searchText: '',
 			page: 0,
@@ -148,7 +151,8 @@ export const Shop: FC = () => {
 		}
 		setFilterBy(newFilter)
 		setSearchParams(queryParams)
-		loadProducts(newFilter)
+		await loadProducts(newFilter)
+		setIsLoading(false)
 	}, [])
 
 	const toggleFilterPanel = useCallback(() => {

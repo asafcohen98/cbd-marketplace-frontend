@@ -52,7 +52,7 @@ const StyledCartoonsSvg = styled(CartoonsSvg)`
 	position: absolute;
 	width: 100vw;
 	right: 0;
-	bottom: -1rem;
+	bottom: -0.5%;
 `
 
 export const Hero: FC = () => {

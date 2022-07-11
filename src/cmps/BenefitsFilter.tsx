@@ -2,6 +2,7 @@ import {
 	FC,
 	useCallback
 } from 'react'
+
 import styled from 'styled-components'
 import { TbHeartPlus } from 'react-icons/tb'
 
