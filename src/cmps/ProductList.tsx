@@ -13,9 +13,8 @@ interface IProductListProps {
 }
 
 export const ProductList: FC<IProductListProps> = ({ products, isLoading }) => {
-	console.log('products in List ', products)
-	console.log('No results in List ', !products?.length)
-
+	console.log('render list');
+	   
 	if (isLoading) return <Loader />
 	if (products?.length){
 		return (

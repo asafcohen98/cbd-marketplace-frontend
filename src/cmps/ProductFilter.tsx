@@ -15,7 +15,7 @@ import { BenefitsFilter } from './BenefitsFilter'
 const FilterContainer = styled.div`
 	position: relative;
 	color: ${(props) => props.theme.colors.darkColor};
-	padding: 1rem;
+	padding: 1rem 0 ;
 	flex : 1;
 	box-shadow: ${(props) => props.theme.boxShadows.bs2};
 	> *:not(:last-child) {

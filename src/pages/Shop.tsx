@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useUpdateEffect } from '../hooks/useUpdateEffect'
 
 import { productService } from '../services/product.service'
 
@@ -45,7 +46,7 @@ export const Shop: FC = () => {
 	// move debounce to searchComponent...
 	// const debouncedFilterBy = useDebounce<IFilterBy>(filterBy, 500)
 
-	const loadProducts = useCallback(async (filterBy: IFilterBy) => {
+	const loadProducts = async (filterBy: IFilterBy) => {
 		try {
 			const [products, totalPages] = await productService.getProducts(filterBy)
 			setIsLoading(true)
@@ -55,9 +56,9 @@ export const Shop: FC = () => {
 			console.error(`[Error in loadProducts] : ${err}`)
 			setErrorMsg(err)
 		}
-	}, [])
+	}
 
-	const loadCategories = useCallback(async () => {
+	const loadCategories = async () => {
 		try {
 			setIsLoading(true)
 			const categories = await productService.getCategories()
@@ -66,9 +67,9 @@ export const Shop: FC = () => {
 			console.error(`[Error in loadCategories] : ${err}`)
 			setErrorMsg(err)
 		}
-	}, [])
+	}
 
-	const loadBenefits = useCallback(async () => {
+	const loadBenefits = async () => {
 		try {
 			setIsLoading(true)
 			const benefits = await productService.getBenefits()
@@ -77,7 +78,7 @@ export const Shop: FC = () => {
 			console.error(`[Error in loadBenefits] : ${err}`)
 			setErrorMsg(err)
 		}
-	}, [])
+	}
 
 	const getFiltersFromSearchParams = useMemo(() => {
 		console.log('getFiltersFromSearchParams !!')
@@ -112,6 +113,11 @@ export const Shop: FC = () => {
 		})()
 	}, [])
 
+	useUpdateEffect(() => {
+		if (isFilterPanelOpen) document.body.style.overflow = 'hidden'
+		else document.body.style.overflow = 'unset'
+	}, [isFilterPanelOpen])
+
 	const onSetFilter = useCallback(
 		async (field, value) => {
 			value =
@@ -127,7 +133,7 @@ export const Shop: FC = () => {
 			}
 			setFilterBy(newFilter)
 			setSearchParams(queryParams)
-			if (field === 'category') setIsFilterPanelOpen(false)
+			if (field === 'category' && isFilterPanelOpen) setIsFilterPanelOpen(false)
 			await loadProducts(newFilter)
 			setIsLoading(false)
 		},

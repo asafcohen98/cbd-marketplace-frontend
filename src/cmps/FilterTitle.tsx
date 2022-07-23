@@ -8,6 +8,7 @@ interface IFilterTitleContainerProps {
 const FilterTitleContainer = styled.div<IFilterTitleContainerProps>`
 	color: ${(props) => props.theme.colors.darkColor};
 	display: flex;
+	padding: 0 1rem;
 	margin-bottom: 0.5rem;
 	align-items: center;
 	font-size: ${props => props.isBigText ? '1.2rem' : '1rem'};

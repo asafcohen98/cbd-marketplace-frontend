@@ -20,6 +20,7 @@ const BenefitsForm = styled.form`
 	font-size: 0.95rem;
 	color: ${(props) => props.theme.colors.darkColor};
 	display: flex;
+	padding: 0 1rem;
 	flex-direction: column;
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
             overflow-y: auto;

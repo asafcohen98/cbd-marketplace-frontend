@@ -20,8 +20,8 @@ export const theme: DefaultTheme = {
         square: '0.6rem'
     },
     colors: {
-        brandDarkColor: "#004b23",
-        brandLightColor: "#0e4d31",
+        brandDarkColor: "#132A13;",
+        brandLightColor: "#31572C",
         lightColor: "#fff",
         darkColor: "#222831",
         mutedColor: '#c8c8c8'

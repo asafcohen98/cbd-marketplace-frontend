@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { IProduct } from '../interfaces/IProduct.interface'
 
 import { Card } from './layouts/Card'
-import { PrimaryButton } from './PrimaryButton'
+import { Button } from './Button'
 import { ProductImg } from './ProductImg'
 import { ProductPrice } from './ProductPrice'
 import { ProductScore } from './ProductScore'
@@ -60,9 +60,9 @@ export const ProductPreview: FC<IProductPreviewProps> = ({ product }) => {
 				<ProductTitle>{product.name}</ProductTitle>
 			</ProductContentContainer>
 			<ProductPrice product={product} />
-			<PrimaryButton as='a' href={product.productLink} target='_blank'>
+			<Button as='a' size='medium' variant='regular' color='light' href={product.productLink} target='_blank'>
 				Buy now
-			</PrimaryButton>
+			</Button>
 		</Card>
 	)
 }

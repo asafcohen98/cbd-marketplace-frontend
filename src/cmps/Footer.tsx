@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import { BsLinkedin, BsFacebook, BsTwitter, BsInstagram } from 'react-icons/bs'
 
 import { MainLayout } from './layouts/MainLayout'
-import { Logo } from './Logo'
+
 
 const FooterContainer = styled.footer`
+padding: 1.5rem 0;
 `
 
 const FooterContent = styled.div`

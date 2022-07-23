@@ -17,7 +17,7 @@ const CategoryContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 0.5rem;
-	`
+`
 
 interface ICategoryNameProps {
 	isExpended: boolean
@@ -25,16 +25,21 @@ interface ICategoryNameProps {
 }
 
 const SubCategoriesContainer = styled.div<ICategoryNameProps>`
-    cursor: pointer;
-    max-height: ${props => props.isExpended ? '500px' : '0'};
-	opacity: ${props => props.isExpended ? '100' : '0'} ;
-	pointer-events: ${props => props.isExpended ? 'unset' : 'none'};
+	cursor: pointer;
+	max-height: ${(props) => (props.isExpended ? '500px' : '0')};
+	opacity: ${(props) => (props.isExpended ? '100' : '0')};
+	pointer-events: ${(props) => (props.isExpended ? 'unset' : 'none')};
 	display: flex;
 	flex-direction: column;
-	margin-inline-start: 2rem;
-	transition: all 0.3s ease-in;
+	padding-inline-start: 2rem;
+	padding-top: 0.1rem;
+	padding-bottom: 0.1rem;
+	background-color: #8383830a;
+	transition: opacity 0.4s ,max-height 0.4s ;
+	> *:not(:last-child) {
+		margin-bottom: 0.1rem;
+	}
 `
-
 
 const SubCategoryTitle = styled.div<ICategoryNameProps>`
 	color: ${(props) =>
@@ -46,11 +51,12 @@ const SubCategoryTitle = styled.div<ICategoryNameProps>`
 `
 
 const TopCategory = styled.div<ICategoryNameProps>`
-    cursor: pointer;
+	cursor: pointer;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	font-family: Mukta-Regular, sans-serif;
+	padding: 0 1rem;
 
 	svg {
 		transform: rotateZ(${(props) => (props.isExpended ? '90deg' : '0deg')});
@@ -81,7 +87,8 @@ export const CategoriesFilter: FC<ICategoriesFilterProps> = ({
 			setExpendedCategory(categoryId)
 		}
 	}
-
+     console.log('render categories');
+	 
 	return (
 		<CategoriesContainer>
 			<FilterTitle>
@@ -98,7 +105,8 @@ export const CategoriesFilter: FC<ICategoriesFilterProps> = ({
 							{category.name}
 							<IoIosArrowForward size='0.875rem' />
 						</TopCategory>
-						<SubCategoriesContainer isExpended={category._id === expendedCategory}>
+						<SubCategoriesContainer
+							isExpended={category._id === expendedCategory}>
 							{category.children.map((subCategory) => {
 								return (
 									<SubCategoryTitle

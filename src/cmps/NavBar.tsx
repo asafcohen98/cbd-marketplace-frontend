@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { HashLink } from 'react-router-hash-link'
 import styled from 'styled-components'
 
 const StyledNavBar = styled.nav`
@@ -9,17 +10,16 @@ const StyledNavBar = styled.nav`
 	}
 `
 
-const StyledLink = styled.a`
+const StyledLink = styled(HashLink)`
 	text-decoration: none;
 	font-size: 1.2rem;
 `
 
 export const NavBar: FC = () => {
-	// links from react-router later...
 	return (
 		<StyledNavBar>
-			<StyledLink href='#about'>About</StyledLink>
-			<StyledLink href='#howItWorks'>How it works</StyledLink>
+			<StyledLink to='/#about'>About</StyledLink>
+			<StyledLink to='/#howItWorks'>How it works</StyledLink>
 		</StyledNavBar>
 	)
 }

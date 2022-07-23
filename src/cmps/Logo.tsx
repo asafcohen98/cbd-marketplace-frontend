@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { ReactComponent as LogoSymbol } from '../assets/imgs/logo.svg'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 
-const LogoContainer = styled(Link)`
+const LogoContainer = styled(HashLink)`
 	display: flex;
 	align-items: center;
 	cursor: pointer;
@@ -17,7 +17,7 @@ const StyledName = styled.h1`
 
 export const Logo: FC = () => {
 	return (
-		<LogoContainer to='/'>
+		<LogoContainer to='/#top'>
 			<LogoSymbol />
 			<StyledName>CBDiff</StyledName>
 		</LogoContainer>

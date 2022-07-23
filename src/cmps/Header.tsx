@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react'
+import { Location, useLocation } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import { MainLayout } from './layouts/MainLayout'
 
@@ -11,6 +12,7 @@ const smoothScroll = keyframes`
 `
 
 interface IHeaderContainerProps {
+	headerType: HeaderType
 	isSticky: boolean
 }
 
@@ -22,27 +24,23 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 	width: 100%;
 	height: 100%;
 	box-shadow: ${(props) =>
-		props.isSticky ? props.theme.boxShadows.bs2 : 'unset'};
-	background: linear-gradient(
-		180deg,
-		#0c4d30 100%,
-		#0c4a2e 100%,
-		#0a4028 100%,
-		#072f1e 100%,
-		#04180f 100%,
-		#000000 100%
-	);
+		props.isSticky || props.headerType === 'shop'
+			? props.theme.boxShadows.bs2
+			: 'unset'};
+	background: ${(props) =>
+		props.headerType === 'shop'
+			? props.theme.colors.lightColor
+			: props.theme.colors.brandDarkColor};
 
 	&.sticky {
 		animation: ${smoothScroll} 800ms ease-in-out;
-		/* background: ${(props) => props.theme.colors.darkColor}; */
-		background :#fff;
+		background: ${(props) => props.theme.colors.lightColor};
 	}
-	// test -- which color is better ?
+
 	svg {
 		path {
 			fill: ${(props) =>
-				props.isSticky
+				props.isSticky || props.headerType === 'shop'
 					? props.theme.colors.darkColor
 					: props.theme.colors.lightColor};
 		}
@@ -50,25 +48,23 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 
 	h1 {
 		color: ${(props) =>
-			props.isSticky
+			props.isSticky || props.headerType === 'shop'
 				? props.theme.colors.darkColor
 				: props.theme.colors.lightColor};
 	}
 
-	a{
+	a {
 		font-size: 1.5rem;
 		color: ${(props) =>
-			props.isSticky
+			props.isSticky || props.headerType === 'shop'
 				? props.theme.colors.darkColor
 				: props.theme.colors.lightColor};
 	}
 
-         
-	transition: background-color 800ms ease-in-out;
 `
 
 const HeaderContent = styled.div`
-	padding: 1rem 0;
+	padding: 1.5rem 0;
 	height: 100%;
 	display: flex;
 	width: 100%;
@@ -76,8 +72,13 @@ const HeaderContent = styled.div`
 	justify-content: space-between;
 `
 
-export const Header: FC = ({ children }) => {
+type HeaderType = 'home' | 'shop'
+
+export const Header: FC = () => {
 	const [isSticky, setIsSticky] = useState<boolean>(false)
+	const [headerType, setHeaderType] = useState<HeaderType>('home')
+
+	const location: Location = useLocation()
 
 	const trackScroll = () => {
 		if (typeof window === 'undefined') return
@@ -91,8 +92,15 @@ export const Header: FC = ({ children }) => {
 		}
 	}, [])
 
+	useEffect(() => {
+		const { pathname } = location
+		if (pathname.includes('shop')) setHeaderType('shop')
+		else setHeaderType('home')
+	}, [location])
+
 	return (
 		<HeaderContainer
+			headerType={headerType}
 			isSticky={isSticky}
 			className={`${isSticky ? 'sticky' : ''}`}>
 			<MainLayout>

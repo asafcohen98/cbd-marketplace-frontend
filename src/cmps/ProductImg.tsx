@@ -4,9 +4,11 @@ import styled from 'styled-components'
 import { ImgContainer } from './layouts/ImgContainer'
 
 const Image = styled.img`
-	transition: transform  0.5s ease-in-out;
-	&:hover {
-		transform: scale(1.1);
+	transition: transform 0.5s ease-in-out;
+	@media only screen and (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+		&:hover {
+			transform: scale(1.1);
+		}
 	}
 `
 

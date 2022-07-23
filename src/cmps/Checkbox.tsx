@@ -43,7 +43,7 @@ const CheckboxMark = styled.span`
 		top: 2px;
 		width: 3px;
 		height: 9px;
-		border: solid ${(props) => props.theme.colors.darkColor};
+		border: solid ${(props) => props.theme.colors.lightColor};
 		border-width: 0 3px 3px 0;
 		transform: rotate(45deg);
 	}

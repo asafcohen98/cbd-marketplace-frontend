@@ -9,6 +9,7 @@ const VerifiedBuyerContainer = styled.div`
 	padding: 0 0.3rem;
 	display: flex;
 	align-items: center;
+	border : 0.1rem solid ${props => props.theme.colors.darkColor};
 
 	span:last-of-type {
 		color: ${(props) => props.theme.colors.darkColor};;;
@@ -16,6 +17,7 @@ const VerifiedBuyerContainer = styled.div`
 
 	svg {
 		fill: ${(props) => props.theme.colors.darkColor};
+		margin-inline-end: 0.2rem;
 	}
 `
 

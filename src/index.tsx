@@ -1,3 +1,4 @@
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
@@ -9,17 +10,18 @@ import { FontFaceStyle } from './assets/styles/FontFaceStyle'
 
 import App from './App'
 
-
 ReactDOM.render(
-	<Router>
+	<StrictMode>
+		<Router>
 			<ThemeProvider theme={theme}>
-				<IconContext.Provider value={{color : "#222831", size : "1.5rem"}}>
+				<IconContext.Provider value={{ color: '#222831', size: '1.5rem' }}>
 					<FontFaceStyle />
 					<GlobalStyle />
 					<App />
 				</IconContext.Provider>
 			</ThemeProvider>
-	</Router>,
+		</Router>
+	</StrictMode>,
 	document.getElementById('root')
 )
 

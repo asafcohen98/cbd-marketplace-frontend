@@ -21,8 +21,7 @@ const Pagination = styled(ReactPaginate)`
 
 	a{
 		display: flex;
-		/* width: 100%;
-		height: 100%; */
+		color: ${props => props.theme.colors.darkColor};
 		padding: 0.2rem 1rem;
 		align-items: center;
 		justify-content: center;
