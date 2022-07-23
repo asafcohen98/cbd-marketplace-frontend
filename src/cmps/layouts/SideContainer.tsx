@@ -23,7 +23,7 @@ const StyledSideContainer = styled.aside<IStyledSideContainer>`
 		flex-basis: unset;
 		height: 100%;
 		margin: 0;
-		top: 8%;
+		top: 11%;
 		left: 0;
 		width: 70%;
 		background-color: ${(props) => props.theme.colors.lightColor};

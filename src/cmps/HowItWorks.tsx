@@ -1,5 +1,8 @@
-import { FC } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 import { MainLayout } from './layouts/MainLayout'
 
 import { ReactComponent as StepSvg } from '../assets/imgs/step.svg'
@@ -49,7 +52,7 @@ const HIWStepParagraph = styled.p`
 `
 
 const HIWStepNumber = styled.span`
-	color: #DDFF75;
+	color: #ddff75;
 	font-family: SingleDay-Regular;
 	font-size: 25rem;
 	z-index: -1;
@@ -57,14 +60,37 @@ const HIWStepNumber = styled.span`
 	position: absolute;
 	top: 0;
 	right: 50%;
-	transform: translateX(0,-50%);
+	transform: translateX(0, -50%);
 `
 
 export const HowItWorks: FC = () => {
+
+	const hiwContainerRef = useRef()
+	const hiwContentContainerRef = useRef()
+
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger)
+		gsap.fromTo(
+			hiwContainerRef.current,
+			{
+				opacity: 0,
+				x: 100,
+			},
+			{
+				scrollTrigger: {
+					trigger: hiwContentContainerRef.current,
+					start: 'top 20%',
+				},
+				opacity: 1,
+				x: 0,
+				duration: 2,
+			}
+		)
+	}, [])
 	return (
-		<HIWContainer className='full' id='howItWorks'>
-			<MainLayout>
-				<HIWContentContainer>
+		<HIWContainer className='full' id='howItWorks' ref={hiwContentContainerRef}>
+			<MainLayout >
+				<HIWContentContainer ref={hiwContainerRef}>
 					<HIWTitle>How it works</HIWTitle>
 					<HIWSteps>
 						<HIWStep>

@@ -1,6 +1,8 @@
-import { FC } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { MainLayout } from './layouts/MainLayout'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import aboutImg from '../assets/imgs/about.jpeg'
 
@@ -56,10 +58,34 @@ const AboutBlob = styled.div`
 `
 
 export const About: FC = () => {
+
+	const aboutContainerRef = useRef()
+	const aboutInnerContainerRef = useRef()
+
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger)
+		gsap.fromTo(
+			aboutContainerRef.current,
+			{
+				opacity: 0,
+				y: 100,
+			},
+			{
+				scrollTrigger: {
+					trigger: aboutContainerRef.current,
+					start: 'top 20%',
+				},
+				opacity: 1,
+				y: 0,
+				duration: 2,
+			}
+		)
+	}, [])
+
 	return (
-		<AboutContainer className='full' id='about'>
+		<AboutContainer className='full' id='about' ref={aboutContainerRef}>
 			<MainLayout>
-				<AboutInnerContainer>
+				<AboutInnerContainer ref={aboutInnerContainerRef}>
 					<AboutContent>
 						<AboutTitle>About</AboutTitle>
 						<AboutParagraph>
