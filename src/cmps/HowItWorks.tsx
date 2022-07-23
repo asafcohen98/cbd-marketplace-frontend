@@ -79,7 +79,7 @@ export const HowItWorks: FC = () => {
 			{
 				scrollTrigger: {
 					trigger: hiwContentContainerRef.current,
-					start: 'top 20%',
+					start: 'top 50%',
 				},
 				opacity: 1,
 				x: 0,

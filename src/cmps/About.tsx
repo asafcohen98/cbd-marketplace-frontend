@@ -73,7 +73,7 @@ export const About: FC = () => {
 			{
 				scrollTrigger: {
 					trigger: aboutContainerRef.current,
-					start: 'top 20%',
+					start: 'top 70%',
 				},
 				opacity: 1,
 				y: 0,
