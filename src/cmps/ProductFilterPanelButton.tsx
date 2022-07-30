@@ -5,7 +5,7 @@ import { FiFilter } from 'react-icons/fi'
 const StyledProductFilterPanelButton = styled.button`
     visibility: hidden;
  
-    @media only screen and (max-width: ${(props) =>	props.theme.breakpoints.tablet}) {
+    @media only screen and (max-width: ${(props) =>	props.theme.breakpoints.bigTablet}) {
       display: flex;
 	  align-items: center;
 	  background-color: transparent;

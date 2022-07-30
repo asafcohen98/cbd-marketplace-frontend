@@ -63,7 +63,7 @@ export const Hero: FC = () => {
 					</Button>
 				</HeroContent>
 			</MainLayout>
-			<StyledCartoonsSvg />
+			{/* <StyledCartoonsSvg /> */}
 		</HeroContainer>
 	)
 }

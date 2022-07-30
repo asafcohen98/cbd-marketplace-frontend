@@ -22,7 +22,7 @@ const BenefitsForm = styled.form`
 	display: flex;
 	padding: 0 1rem;
 	flex-direction: column;
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
             overflow-y: auto;
 			max-height: 11rem;
 			::-webkit-scrollbar {

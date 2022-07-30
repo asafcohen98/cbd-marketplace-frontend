@@ -9,10 +9,8 @@ const StyledContainer = styled.section`
 	flex: 1;
 	grid-gap: 1rem 1rem;
 
-  @media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    overflow: unset;
-    height: 100%;
-    padding: 0;
+  @media only screen and (max-width: ${(props) => props.theme.breakpoints.narrow}) {
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	}
 
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {

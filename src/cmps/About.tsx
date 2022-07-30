@@ -47,18 +47,26 @@ const morphBlob = keyframes`
 
 const AboutBlob = styled.div`
 	overflow: hidden;
-	width: 25rem;
-	height: 25rem;
+	width: 20rem;
+	height: 20rem;
 	background: url(${aboutImg});
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: right;
 	border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
 	animation: ${morphBlob} 3.75s linear infinite;
+	
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		display: none;
+	}
+
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.narrow}) {
+		width: 15rem;
+		height: 15rem;
+	}
 `
 
 export const About: FC = () => {
-
 	const aboutContainerRef = useRef()
 	const aboutInnerContainerRef = useRef()
 

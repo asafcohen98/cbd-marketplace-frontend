@@ -21,6 +21,7 @@ declare module 'styled-components' {
         breakpoints: {
             mobile: string,
             tablet : string,
+            bigTablet : string,
             narrow: string,
             desktop: string
         }

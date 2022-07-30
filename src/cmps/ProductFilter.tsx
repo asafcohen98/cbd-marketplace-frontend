@@ -21,7 +21,7 @@ const FilterContainer = styled.div`
 	> *:not(:last-child) {
 		margin-bottom: 1rem;
 	}
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
 		box-shadow: unset;
 		padding: 0 1rem 1rem 1rem;
 	}
@@ -37,7 +37,7 @@ const ClearFilterButton = styled.button`
 	top: 1rem;
 	right: 1rem;
 
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
 		box-shadow: unset;
 		top: 0;
 	}

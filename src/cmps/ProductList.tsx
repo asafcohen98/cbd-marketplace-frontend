@@ -6,6 +6,7 @@ import { Loader } from './Loader'
 import { NoResults } from './NoResults'
 import { CardsContainer } from './layouts/CardsContainer'
 import { ProductPreview } from './ProductPreview'
+import { ShopContainer } from './layouts/ShopContainer'
 
 interface IProductListProps {
 	products: IProduct[]
@@ -13,17 +14,13 @@ interface IProductListProps {
 }
 
 export const ProductList: FC<IProductListProps> = ({ products, isLoading }) => {
-	console.log('render list');
-	   
-	if (isLoading) return <Loader />
-	if (products?.length){
-		return (
-			<CardsContainer>
-				{products.map((product) => {
-					return <ProductPreview key={product._id} product={product} />
-				})}
-			</CardsContainer>
-		)
-	}
+	if (isLoading) return <ShopContainer><Loader /></ShopContainer>
 	if (!products?.length) return <NoResults />
+	return (
+		<CardsContainer>
+			{products.map((product) => {
+				return <ProductPreview key={product._id} product={product} />
+			})}
+		</CardsContainer>
+	)
 }

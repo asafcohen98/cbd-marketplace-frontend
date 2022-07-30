@@ -60,7 +60,7 @@ export const ProductPreview: FC<IProductPreviewProps> = ({ product }) => {
 				<ProductTitle>{product.name}</ProductTitle>
 			</ProductContentContainer>
 			<ProductPrice product={product} />
-			<Button as='a' size='medium' variant='regular' color='light' href={product.productLink} target='_blank'>
+			<Button as='a' size='medium' variant='regular' color='dark' href={product.productLink} target='_blank'>
 				Buy now
 			</Button>
 		</Card>

@@ -33,9 +33,9 @@ const StyledMainLayout = styled.section`
 
 	@media only screen and (max-width: ${(props) =>	props.theme.breakpoints.mobile}) {
 		grid-template-columns:
-			minmax(0.5rem, 1fr)
-			minmax(auto,  ${(props) => props.theme.breakpoints.tablet})
-			minmax(0.5rem, 1fr);
+			minmax(1rem, 1fr)
+			minmax(auto,  ${(props) => props.theme.breakpoints.mobile})
+			minmax(1rem, 1fr);
 	}
 `
 

@@ -1,10 +1,13 @@
 import { FC, useEffect, useState } from 'react'
 import { Location, useLocation } from 'react-router-dom'
+import { useUpdateEffect } from '../hooks/useUpdateEffect'
 import styled, { keyframes } from 'styled-components'
+
 import { MainLayout } from './layouts/MainLayout'
 
 import { Logo } from './Logo'
 import { NavBar } from './NavBar'
+import { BurgerMenu } from './BurgerMenu'
 
 const smoothScroll = keyframes`
   0% { transform: translateY(-100%); }
@@ -14,6 +17,7 @@ const smoothScroll = keyframes`
 interface IHeaderContainerProps {
 	headerType: HeaderType
 	isSticky: boolean
+	isMenuOpen : boolean
 }
 
 const HeaderContainer = styled.header<IHeaderContainerProps>`
@@ -56,11 +60,10 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 	a {
 		font-size: 1.5rem;
 		color: ${(props) =>
-			props.isSticky || props.headerType === 'shop'
+			props.isSticky || props.headerType === 'shop' || props.isMenuOpen
 				? props.theme.colors.darkColor
 				: props.theme.colors.lightColor};
 	}
-
 `
 
 const HeaderContent = styled.div`
@@ -75,8 +78,10 @@ const HeaderContent = styled.div`
 type HeaderType = 'home' | 'shop'
 
 export const Header: FC = () => {
+
 	const [isSticky, setIsSticky] = useState<boolean>(false)
 	const [headerType, setHeaderType] = useState<HeaderType>('home')
+	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
 	const location: Location = useLocation()
 
@@ -98,15 +103,27 @@ export const Header: FC = () => {
 		else setHeaderType('home')
 	}, [location])
 
+	useUpdateEffect(() => {
+		if (isMenuOpen) document.body.style.overflow = 'hidden'
+		else document.body.style.overflow = 'unset'
+	}, [isMenuOpen])
+
 	return (
 		<HeaderContainer
 			headerType={headerType}
 			isSticky={isSticky}
+			isMenuOpen={isMenuOpen}
 			className={`${isSticky ? 'sticky' : ''}`}>
 			<MainLayout>
 				<HeaderContent>
 					<Logo />
-					<NavBar />
+					<NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+					<BurgerMenu
+						isMenuOpen={isMenuOpen}
+						setIsMenuOpen={setIsMenuOpen}
+						headerType={headerType}
+						isSticky={isSticky}
+					/>
 				</HeaderContent>
 			</MainLayout>
 		</HeaderContainer>

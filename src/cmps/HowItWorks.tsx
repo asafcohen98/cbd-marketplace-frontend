@@ -10,6 +10,9 @@ import { ReactComponent as StepSvg } from '../assets/imgs/step.svg'
 const HIWContainer = styled.section`
 	background-color: #c1e153;
 	padding: 10rem 0 20rem 0;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		padding : 10rem 0;
+	}
 `
 
 const HIWContentContainer = styled.div`
@@ -28,7 +31,9 @@ const HIWTitle = styled.h1`
 const HIWSteps = styled.div`
 	display: flex;
 	justify-content: space-between;
-	flex-wrap: wrap;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		flex-direction: column;
+	}
 `
 
 const HIWStep = styled.div`
@@ -36,6 +41,9 @@ const HIWStep = styled.div`
 	display: flex;
 	flex-direction: column;
 	z-index: 0;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		margin-bottom: 2rem;
+	}
 `
 const HIWStepTitle = styled.h3`
 	color: ${(props) => props.theme.colors.darkColor};
@@ -61,6 +69,17 @@ const HIWStepNumber = styled.span`
 	top: 0;
 	right: 50%;
 	transform: translateX(0, -50%);
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		margin-bottom: 2rem;
+		/* left: 0; */
+		font-size: 10rem;
+	}
+`
+
+const HIWStepSvg = styled(StepSvg)`
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.narrow}) {
+		display: none;
+	}
 `
 
 export const HowItWorks: FC = () => {
@@ -101,7 +120,7 @@ export const HowItWorks: FC = () => {
 							</HIWStepParagraph>
 							<HIWStepNumber>1</HIWStepNumber>
 						</HIWStep>
-						<StepSvg />
+						<HIWStepSvg />
 						<HIWStep>
 							<HIWStepTitle>Direct links to every site</HIWStepTitle>
 							<HIWStepParagraph>
@@ -110,7 +129,7 @@ export const HowItWorks: FC = () => {
 							</HIWStepParagraph>
 							<HIWStepNumber>2</HIWStepNumber>
 						</HIWStep>
-						<StepSvg />
+						<HIWStepSvg />
 						<HIWStep>
 							<HIWStepTitle>Use Brand's deals & Buy</HIWStepTitle>
 							<HIWStepParagraph>

@@ -20,8 +20,8 @@ export const theme: DefaultTheme = {
         square: '0.6rem'
     },
     colors: {
-        brandDarkColor: "#132A13;",
-        brandLightColor: "#31572C",
+        brandDarkColor: "#132A13",
+        brandLightColor: "#c1e153",
         lightColor: "#fff",
         darkColor: "#222831",
         mutedColor: '#c8c8c8'
@@ -29,7 +29,8 @@ export const theme: DefaultTheme = {
     breakpoints: {
         mobile: '600px',
         tablet: '800px',
-        narrow: '950px',
+        bigTablet : '1280px',
+        narrow: '1480px',
         desktop: '1600px'
     }
 }

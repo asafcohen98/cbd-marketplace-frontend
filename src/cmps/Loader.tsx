@@ -14,10 +14,8 @@ const LoaderContainer = styled.div`
 
 export const Loader: FC = () => {
 	return (
-		<ShopContainer>
 			<LoaderContainer>
 				<LoaderSvg />
 			</LoaderContainer>
-		</ShopContainer>
 	)
 }

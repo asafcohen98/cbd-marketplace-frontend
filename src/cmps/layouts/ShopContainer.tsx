@@ -7,7 +7,12 @@ const StyledShopContainer = styled.section`
 	height: 77rem;
 	display: flex;
 	margin: 0rem 0 1.5rem 0;
-	@media only screen and (max-width: ${(props) =>	props.theme.breakpoints.tablet}) {
+	
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.narrow}) {
+		height: 103rem;
+	}
+
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
 		height: 100%;
 	}
 `

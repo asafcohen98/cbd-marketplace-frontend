@@ -14,7 +14,7 @@ const StyledSideContainer = styled.aside<IStyledSideContainer>`
 		margin-bottom: 1rem;
 	}
 
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
 		transform: translate(
 			${(props) => (props.isFilterPanelOpen ? '0' : '-100%')}
 		);
@@ -23,7 +23,7 @@ const StyledSideContainer = styled.aside<IStyledSideContainer>`
 		flex-basis: unset;
 		height: 100%;
 		margin: 0;
-		top: 11%;
+		top: 6.9rem;
 		left: 0;
 		width: 70%;
 		background-color: ${(props) => props.theme.colors.lightColor};

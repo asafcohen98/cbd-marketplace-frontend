@@ -14,7 +14,7 @@ const StyledForm = styled.form`
 	> *:not(:last-child) {
 		margin-inline-end: 0.5rem;
 	}
-	@media only screen and (max-width: ${(props) =>	props.theme.breakpoints.tablet}) {
+	@media only screen and (max-width: ${(props) =>	props.theme.breakpoints.bigTablet}) {
 		box-shadow: unset;
 		border-bottom : 1px solid ${props => props.theme.colors.mutedColor};
 	}

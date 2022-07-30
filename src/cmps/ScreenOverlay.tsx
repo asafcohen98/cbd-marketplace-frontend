@@ -2,13 +2,19 @@ import { FC, MouseEventHandler } from 'react'
 import styled from 'styled-components'
 
 interface IScreenOverlayContainerProps {
-	isFilterPanelOpen: boolean
+	isFilterPanelOpen?: boolean
+	isMenuOpen?: boolean
 }
 
 const ScreenOverlayContainer = styled.div<IScreenOverlayContainerProps>`
-	pointer-events: ${(props) => (props.isFilterPanelOpen ? 'unset' : 'none')};
-	cursor: ${(props) => (props.isFilterPanelOpen ? 'pointer' : 'unset')};
-	opacity: ${(props) => (props.isFilterPanelOpen ? '100' : '0')};
+	top: 0;
+	right: 0;
+	pointer-events: ${(props) =>
+		props.isFilterPanelOpen || props.isMenuOpen ? 'unset' : 'none'};
+	cursor: ${(props) =>
+		props.isFilterPanelOpen || props.isMenuOpen ? 'pointer' : 'unset'};
+	opacity: ${(props) =>
+		props.isFilterPanelOpen || props.isMenuOpen ? '100' : '0'};
 	background-color: #adadad58;
 	position: fixed;
 	z-index: 5;
@@ -18,16 +24,19 @@ const ScreenOverlayContainer = styled.div<IScreenOverlayContainerProps>`
 `
 interface IScreenOverlayProps {
 	handleClick: MouseEventHandler<HTMLDivElement>
-	isFilterPanelOpen: boolean
+	isFilterPanelOpen?: boolean
+	isMenuOpen?: boolean
 }
 
 export const ScreenOverlay: FC<IScreenOverlayProps> = ({
 	isFilterPanelOpen,
 	handleClick,
+	isMenuOpen,
 }) => {
 	return (
 		<ScreenOverlayContainer
 			onClick={handleClick}
-			isFilterPanelOpen={isFilterPanelOpen}></ScreenOverlayContainer>
+			isFilterPanelOpen={isFilterPanelOpen}
+			isMenuOpen={isMenuOpen}></ScreenOverlayContainer>
 	)
 }

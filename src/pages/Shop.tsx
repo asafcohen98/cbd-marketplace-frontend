@@ -165,7 +165,12 @@ export const Shop: FC = () => {
 		setIsFilterPanelOpen((isFilterPanelOpen) => !isFilterPanelOpen)
 	}, [])
 
-	if (isLoading && !benefits.length && !categories.length) return <Loader />
+	if (isLoading || !benefits.length || !categories.length)
+		return (
+			<ShopContainer>
+				<Loader />
+			</ShopContainer>
+		)
 	return (
 		<>
 			<ScreenOverlay
