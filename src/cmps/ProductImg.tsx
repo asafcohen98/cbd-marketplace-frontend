@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import styled from 'styled-components'
+import fallbackProductImg from '../assets/imgs/fallbackProductImg.jpeg'
 
 import { ImgContainer } from './layouts/ImgContainer'
 import { Loader } from './Loader'
@@ -23,8 +24,12 @@ interface IProductImgProps {
 }
 
 export const ProductImg: FC<IProductImgProps> = ({ imgSrc }) => {
-	
 	const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false)
+	const [currImg, setCurrImg] = useState<string>(imgSrc)
+
+	const onImgFailedLoad = () => {
+		setCurrImg(fallbackProductImg)
+	}
 
 	return (
 		<ImgContainer>
@@ -32,7 +37,8 @@ export const ProductImg: FC<IProductImgProps> = ({ imgSrc }) => {
 			<Image
 				isImgLoaded={isImgLoaded}
 				onLoad={() => setIsImgLoaded(true)}
-				src={imgSrc}
+				onError={onImgFailedLoad}
+				src={currImg}
 				alt='cbd'
 			/>
 		</ImgContainer>
