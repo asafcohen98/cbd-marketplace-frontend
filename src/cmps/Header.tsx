@@ -31,6 +31,9 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 	&.sticky {
 		animation: ${smoothScroll} 800ms ease-in-out;
 		box-shadow: ${(props) => props.theme.boxShadows.bs2};
+		@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		animation: unset;
+	}
 	}
 
 	svg {

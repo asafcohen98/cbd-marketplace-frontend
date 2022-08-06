@@ -126,6 +126,7 @@ export const HowItWorks: FC = () => {
 	const hiwContentContainerRef = useRef()
 
 	useEffect(() => {
+		if(window.innerWidth <= 800) return
 		gsap.registerPlugin(ScrollTrigger)
 		gsap.fromTo(
 			hiwContainerRef.current,

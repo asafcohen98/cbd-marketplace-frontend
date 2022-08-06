@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from 'react'
+import { FC, useCallback, useEffect, useRef, useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import styled from 'styled-components'
 import debounce from 'lodash/debounce'
@@ -37,7 +37,10 @@ export const ProductSearch: FC<IProductSearchProps> = ({
 	filterBy,
 	onSetFilter,
 }) => {
+
 	const [searchTerm, setSearchTerm] = useState<string>('')
+
+	const inputRef = useRef(null)
 
 	
 
@@ -61,11 +64,17 @@ export const ProductSearch: FC<IProductSearchProps> = ({
 		setSearchTerm(searchText)
 	}, [filterBy])
 
+	useEffect(() => {
+          if(inputRef.current && window.innerWidth >= 800){
+           inputRef.current.focus()
+		  }
+	},[inputRef])
+
 	return (
 		<StyledForm>
 			<AiOutlineSearch />
 			<StyledInputSearch
-				autoFocus
+				ref={inputRef}
 				placeholder='Search'
 				name='searchText'
 				value={searchTerm}
