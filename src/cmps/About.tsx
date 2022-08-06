@@ -4,19 +4,22 @@ import { MainLayout } from './layouts/MainLayout'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import aboutImg from '../assets/imgs/about.jpeg'
+import { ReactComponent as AboutSvg } from '../assets/imgs/about-svg.svg'
 
 const AboutContainer = styled.section`
+	background-color: ${(props) => props.theme.colors.brandLightColor};
 	color: ${(props) => props.theme.colors.darkColor};
 `
 
 const AboutInnerContainer = styled.div`
+	background-color: transparent;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 `
 
 const AboutContent = styled.div`
+	background-color: transparent;
 	padding: 10rem 0;
 `
 
@@ -29,41 +32,17 @@ const AboutTitle = styled.h1`
 const AboutParagraph = styled.p`
 	margin: 0;
 	font-family: Mukta-Regular, sans-serif;
-	max-width: 102ch;
-	font-size: 1rem;
+	max-width: 95ch;
+	font-size: 1.125rem;
 `
 
-const morphBlob = keyframes`
-  0%,100% {
-	border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
-  }
-  33% {
-	border-radius: 72% 28% 48% 48% / 28% 28% 72% 72%;
-  }
-  66%{
-	border-radius: 100% 56% 56% 100% / 100% 100% 56% 56%;
-  }
-`
-
-const AboutBlob = styled.div`
-	overflow: hidden;
-	width: 20rem;
-	height: 20rem;
-	background: url(${aboutImg});
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: right;
-	border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
-	animation: ${morphBlob} 3.75s linear infinite;
-	
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
-		display: none;
-	}
-
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.narrow}) {
-		width: 15rem;
-		height: 15rem;
-	}
+const SvgContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	width: 32rem;
+	height: 25rem;
+	border-radius: 50%;
+	background-color: #cbf3f0;
 `
 
 export const About: FC = () => {
@@ -93,8 +72,8 @@ export const About: FC = () => {
 	return (
 		<AboutContainer className='full' id='about' ref={aboutContainerRef}>
 			<MainLayout>
-				<AboutInnerContainer ref={aboutInnerContainerRef}>
-					<AboutContent>
+				<AboutInnerContainer>
+					<AboutContent ref={aboutInnerContainerRef}>
 						<AboutTitle>About</AboutTitle>
 						<AboutParagraph>
 							With thousands of cannabidiol (CBD) products, CBDgle makes it easy
@@ -109,7 +88,9 @@ export const About: FC = () => {
 							Cream and more!{' '}
 						</AboutParagraph>
 					</AboutContent>
-					<AboutBlob />
+					<SvgContainer>
+					<AboutSvg />
+					</SvgContainer>
 				</AboutInnerContainer>
 			</MainLayout>
 		</AboutContainer>

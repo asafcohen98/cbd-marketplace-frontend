@@ -6,26 +6,29 @@ import { MainLayout } from './layouts/MainLayout'
 
 
 const FooterContainer = styled.footer`
-padding: 1.5rem 0;
+/* box-shadow: ${props => props.theme.boxShadows.bs1}; */
+border-top: 0.5px solid ${props => props.theme.colors.darkColor};
+padding: 5rem 0;
 `
 
 const FooterContent = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+	/* margin: auto; */
+	justify-content: center; 
+	align-items: center; 
+	text-align: center; 
 `
 const FooterTitle = styled.h3`
 	color: ${(props) => props.theme.colors.darkColor};
-	font-size: 1.5rem;
+	font-size: 1.125rem;
 	padding: 1.5rem 0;
 	margin: 0;
 `
 
 const FooterParagraph = styled.p`
 	margin: 0 0 1.5rem 0;
-	max-width: 150ch;
+	max-width: 110ch;
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
 		display: none;
 	}
@@ -36,7 +39,7 @@ const FooterSocial = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	align-self: flex-start;
+
 	margin-bottom: 1.5rem;
 `
 
@@ -57,7 +60,7 @@ export const Footer: FC = () => {
 			<MainLayout>
 				<FooterContent>
 					<FooterTitle>
-						www.cbdgle.com is the best source site to compare CBD Products
+						www.sloth-cbd.com is the best source site to compare CBD Products
 						prices
 					</FooterTitle>
 					<FooterParagraph>
@@ -69,7 +72,7 @@ export const Footer: FC = () => {
 						accessible and user - friendly to everyone. All CBD brands on our
 						website have their own disclaimer and terms please check them out
 						before buying any products. For any questions, please contact our
-						support team by email: contact@cbdgle.com.
+						support team by email: contact@sloth-cbd.com.
 					</FooterParagraph>
 					<FooterSocial>
 						<SocialContainer>
@@ -80,8 +83,8 @@ export const Footer: FC = () => {
 						</SocialContainer>
 					</FooterSocial>
 					<FooterCopyright>
-						Contact@cbdgle.com is the best source site to compare CBD Products
-						prices 2022 CBDgle all rights reserved
+						Contact@sloth-cbd.com is the best source site to compare CBD Products
+						prices 2022 Sloth-cbd all rights reserved
 					</FooterCopyright>
 				</FooterContent>
 			</MainLayout>

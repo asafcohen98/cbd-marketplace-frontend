@@ -19,7 +19,6 @@ const StyledButton = styled.button<IStyledButtonProps>`
 			? props.theme.colors.darkColor
 			: props.theme.colors.lightColor};
 	background-color: ${(props) => props.theme.colors.brandLightColor};
-	box-shadow: ${(props) => props.theme.boxShadows.bs2};
 	border-radius: ${(props) =>
 		props.variant === 'rounded' ? '0.5rem' : 'unset'};
 	${(props) =>

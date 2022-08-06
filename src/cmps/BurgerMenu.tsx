@@ -30,10 +30,7 @@ const StyledBurgerMenu = styled.button<IStyledBurgerMenuProps>`
 		div {
 			width: 2rem;
 			height: 0.25rem;
-			background: ${(props) =>
-				props.isSticky || props.headerType === 'shop' || props.isMenuOpen
-					? props.theme.colors.darkColor
-					: props.theme.colors.lightColor};
+			background: ${props =>props.theme.colors.darkColor};
 			border-radius: 10px;
 			transition: all 0.3s linear;
 			position: relative;

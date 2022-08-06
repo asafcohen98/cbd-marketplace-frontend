@@ -8,11 +8,8 @@ import { MainLayout } from './layouts/MainLayout'
 import { ReactComponent as StepSvg } from '../assets/imgs/step.svg'
 
 const HIWContainer = styled.section`
-	background-color: #c1e153;
-	padding: 10rem 0 20rem 0;
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
-		padding : 10rem 0;
-	}
+	background-color: ${(props) => props.theme.colors.lightColor};
+	padding: 10rem 0;
 `
 
 const HIWContentContainer = styled.div`
@@ -25,7 +22,7 @@ const HIWTitle = styled.h1`
 	margin-bottom: 1.5rem;
 	font-size: 3.5rem;
 	color: ${(props) => props.theme.colors.darkColor};
-	margin-bottom: 1rem;
+	margin-bottom: 2.1rem;
 `
 
 const HIWSteps = styled.div`
@@ -37,6 +34,17 @@ const HIWSteps = styled.div`
 `
 
 const HIWStep = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	/* justify-content: flex-start; */
+	align-items: flex-start;
+	> *:not(:last-child) {
+		margin-inline-end: 1rem;
+	}
+`
+
+const HIWStepContent = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -47,43 +55,59 @@ const HIWStep = styled.div`
 `
 const HIWStepTitle = styled.h3`
 	color: ${(props) => props.theme.colors.darkColor};
-	font-size: 1.5rem;
+	font-size: 2rem;
 	line-height: 1em;
-	margin-bottom: 0;
+	margin-bottom: 0.5rem;
 `
 
 const HIWStepParagraph = styled.p`
+  font-family: Mukta-Regular,sans-serif;
 	color: ${(props) => props.theme.colors.darkColor};
-	font-size: 1rem;
-	max-width: 45ch;
+	font-size: 1.125rem;
+	max-width: 35ch;
 	margin: 0;
 `
 
+const HIWStepNumberContainer = styled.div`
+	background-color: #ffbf69;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3.5rem;
+	height: 3.5rem;
+	border-radius: 50%;
+	margin-bottom: 1rem;
+`
+
 const HIWStepNumber = styled.span`
-	color: #ddff75;
-	font-family: SingleDay-Regular;
-	font-size: 25rem;
+	color: ${props => props.theme.colors.darkColor};
+	font-size: 3rem;
+	/* line-height: 1em; */
+	/* font-size: 25rem;
 	z-index: -1;
 	line-height: 0.5em;
 	position: absolute;
 	top: 0;
 	right: 50%;
 	transform: translateX(0, -50%);
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+	@media only screen and (max-width: ${(props) =>
+		props.theme.breakpoints.bigTablet}) {
 		margin-bottom: 2rem;
 		/* left: 0; */
-		font-size: 10rem;
-	}
+	/* font-size: 10rem; */
 `
 
 const HIWStepSvg = styled(StepSvg)`
+	circle {
+		fill: ${(props) => props.theme.colors.darkColor};
+		size: 1rem;
+	}
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.narrow}) {
 		display: none;
 	}
 `
 
 export const HowItWorks: FC = () => {
-
 	const hiwContainerRef = useRef()
 	const hiwContentContainerRef = useRef()
 
@@ -108,35 +132,47 @@ export const HowItWorks: FC = () => {
 	}, [])
 	return (
 		<HIWContainer className='full' id='howItWorks' ref={hiwContentContainerRef}>
-			<MainLayout >
+			<MainLayout>
 				<HIWContentContainer ref={hiwContainerRef}>
 					<HIWTitle>How it works</HIWTitle>
 					<HIWSteps>
 						<HIWStep>
-							<HIWStepTitle>Search & Compare Prices</HIWStepTitle>
-							<HIWStepParagraph>
-								Search for your CBD products and compare prices to find the best
-								deal.
-							</HIWStepParagraph>
-							<HIWStepNumber>1</HIWStepNumber>
+							<HIWStepNumberContainer>
+								<HIWStepNumber>1</HIWStepNumber>
+							</HIWStepNumberContainer>
+							<HIWStepContent>
+								<HIWStepTitle>Search & Compare Prices</HIWStepTitle>
+								<HIWStepParagraph>
+									Search for your CBD products and compare prices to find the
+									best deal.
+								</HIWStepParagraph>
+							</HIWStepContent>
 						</HIWStep>
 						<HIWStepSvg />
 						<HIWStep>
-							<HIWStepTitle>Direct links to every site</HIWStepTitle>
-							<HIWStepParagraph>
-								Clicking on any of your searched CBD products takes you directly
-								to the CBD brand's online site.
-							</HIWStepParagraph>
-							<HIWStepNumber>2</HIWStepNumber>
+							<HIWStepNumberContainer>
+								<HIWStepNumber>2</HIWStepNumber>
+							</HIWStepNumberContainer>
+							<HIWStepContent>
+								<HIWStepTitle>Direct links to every site</HIWStepTitle>
+								<HIWStepParagraph>
+									Clicking on any of your searched CBD products takes you
+									directly to the CBD brand's online site.
+								</HIWStepParagraph>
+							</HIWStepContent>
 						</HIWStep>
 						<HIWStepSvg />
 						<HIWStep>
-							<HIWStepTitle>Use Brand's deals & Buy</HIWStepTitle>
-							<HIWStepParagraph>
-								Find the best deals on every brand when you buy CBD online with
-								CBDgle.
-							</HIWStepParagraph>
-							<HIWStepNumber>3</HIWStepNumber>
+							<HIWStepNumberContainer>
+								<HIWStepNumber>3</HIWStepNumber>
+							</HIWStepNumberContainer>
+							<HIWStepContent>
+								<HIWStepTitle>Use Brand's deals & Buy</HIWStepTitle>
+								<HIWStepParagraph>
+									Find the best deals on every brand when you buy CBD online
+									with CBDgle.
+								</HIWStepParagraph>
+							</HIWStepContent>
 						</HIWStep>
 					</HIWSteps>
 				</HIWContentContainer>

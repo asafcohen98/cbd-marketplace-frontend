@@ -17,7 +17,7 @@ const smoothScroll = keyframes`
 interface IHeaderContainerProps {
 	headerType: HeaderType
 	isSticky: boolean
-	isMenuOpen : boolean
+	isMenuOpen: boolean
 }
 
 const HeaderContainer = styled.header<IHeaderContainerProps>`
@@ -34,11 +34,9 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 	background: ${(props) =>
 		props.headerType === 'shop'
 			? props.theme.colors.lightColor
-			: props.theme.colors.brandDarkColor};
-
+			: props.theme.colors.lightColor};
 	&.sticky {
 		animation: ${smoothScroll} 800ms ease-in-out;
-		background: ${(props) => props.theme.colors.lightColor};
 	}
 
 	svg {
@@ -46,7 +44,7 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 			fill: ${(props) =>
 				props.isSticky || props.headerType === 'shop'
 					? props.theme.colors.darkColor
-					: props.theme.colors.lightColor};
+					: props.theme.colors.darkColor};
 		}
 	}
 
@@ -54,7 +52,7 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 		color: ${(props) =>
 			props.isSticky || props.headerType === 'shop'
 				? props.theme.colors.darkColor
-				: props.theme.colors.lightColor};
+				: props.theme.colors.darkColor};
 	}
 
 	a {
@@ -62,7 +60,7 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 		color: ${(props) =>
 			props.isSticky || props.headerType === 'shop' || props.isMenuOpen
 				? props.theme.colors.darkColor
-				: props.theme.colors.lightColor};
+				: props.theme.colors.darkColor};
 	}
 `
 
@@ -78,7 +76,6 @@ const HeaderContent = styled.div`
 type HeaderType = 'home' | 'shop'
 
 export const Header: FC = () => {
-
 	const [isSticky, setIsSticky] = useState<boolean>(false)
 	const [headerType, setHeaderType] = useState<HeaderType>('home')
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
@@ -117,7 +114,7 @@ export const Header: FC = () => {
 			<MainLayout>
 				<HeaderContent>
 					<Logo />
-					<NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+					<NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 					<BurgerMenu
 						isMenuOpen={isMenuOpen}
 						setIsMenuOpen={setIsMenuOpen}

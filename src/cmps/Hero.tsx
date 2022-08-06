@@ -2,24 +2,23 @@ import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { ReactComponent as CartoonsSvg } from '../assets/imgs/cartoons.svg'
+import { ReactComponent as HeroSvg } from '../assets/imgs/hero-svg.svg'
 import { MainLayout } from './layouts/MainLayout'
 
 import { Button } from './Button'
 
 const HeroContainer = styled.section`
 	width: 100%;
-	position: relative;
 	display: flex;
-	justify-content: center;
-	height: 100vh;
-	flex-direction: column;
-	background: ${(props) => props.theme.colors.brandDarkColor};
+	height: 90vh;
+	background: ${(props) => props.theme.colors.lightColor};
 `
 const HeroContent = styled.div`
 	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: space-between;
 	> *:not(:last-child) {
 		margin-bottom: 1.5rem;
 	}
@@ -28,42 +27,42 @@ const HeroContent = styled.div`
 
 const HeroTitle = styled.h1`
 	max-width: 15ch;
-	color: ${(props) => props.theme.colors.lightColor};
+	color: ${(props) => props.theme.colors.darkColor};
 	font-size: 3.5rem;
 	margin: 0;
 	line-height: 4rem;
 `
 
-const DotSpan = styled.span`
-	color: ${(props) => props.theme.colors.lightColor};
+const StyledHeroSvg = styled(HeroSvg)`
 `
 
-const StyledCartoonsSvg = styled(CartoonsSvg)`
-	position: absolute;
-	width: 100vw;
-	right: 0;
-	bottom: -0.5%;
+const LeftContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	>*:not(:last-child){
+		margin-bottom: 1rem;
+	}
 `
 
 export const Hero: FC = () => {
 	return (
-		<HeroContainer className='full'>
-			<MainLayout>
+		<HeroContainer>
 				<HeroContent>
-					<HeroTitle>
-						Discover the Best CBD Products<DotSpan>.</DotSpan>
-					</HeroTitle>
+					<LeftContainer>
+					<HeroTitle>Discover The Best CBD Products</HeroTitle>
 					<Button
 						size='large'
 						variant='rounded'
-						color='light'
+						color='dark'
 						as={Link}
 						to='/shop'>
 						Shop now
 					</Button>
+					</LeftContainer>
+					<StyledHeroSvg />
 				</HeroContent>
-			</MainLayout>
-			{/* <StyledCartoonsSvg /> */}
 		</HeroContainer>
 	)
 }
