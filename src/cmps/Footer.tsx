@@ -4,26 +4,29 @@ import { BsLinkedin, BsFacebook, BsTwitter, BsInstagram } from 'react-icons/bs'
 
 import { MainLayout } from './layouts/MainLayout'
 
-
 const FooterContainer = styled.footer`
-/* box-shadow: ${props => props.theme.boxShadows.bs1}; */
-border-top: 0.5px solid ${props => props.theme.colors.darkColor};
-padding: 5rem 0;
+	border-top: 0.5px solid ${(props) => props.theme.colors.darkColor};
+	padding: 5rem 0;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		padding: 2rem 0;
+	}
 `
 
 const FooterContent = styled.div`
 	display: flex;
 	flex-direction: column;
-	/* margin: auto; */
-	justify-content: center; 
-	align-items: center; 
-	text-align: center; 
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 `
 const FooterTitle = styled.h3`
 	color: ${(props) => props.theme.colors.darkColor};
 	font-size: 1.125rem;
 	padding: 1.5rem 0;
 	margin: 0;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		font-size: 1rem;
+	}
 `
 
 const FooterParagraph = styled.p`
@@ -52,6 +55,9 @@ const SocialContainer = styled.div`
 const FooterCopyright = styled.small`
 	font-size: 0.9rem;
 	margin-bottom: 1.5rem;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		font-size:  0.875rem
+	}
 `
 
 export const Footer: FC = () => {
@@ -83,8 +89,8 @@ export const Footer: FC = () => {
 						</SocialContainer>
 					</FooterSocial>
 					<FooterCopyright>
-						Contact@sloth-cbd.com is the best source site to compare CBD Products
-						prices 2022 Sloth-cbd all rights reserved
+						Contact@sloth-cbd.com is the best source site to compare CBD
+						Products prices 2022 Sloth-cbd all rights reserved
 					</FooterCopyright>
 				</FooterContent>
 			</MainLayout>

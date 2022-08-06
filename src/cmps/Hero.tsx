@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { ReactComponent as HeroSvg } from '../assets/imgs/hero-svg.svg'
-import { MainLayout } from './layouts/MainLayout'
 
 import { Button } from './Button'
 
@@ -12,6 +11,9 @@ const HeroContainer = styled.section`
 	display: flex;
 	height: 90vh;
 	background: ${(props) => props.theme.colors.lightColor};
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+		height: 60vh;
+	}
 `
 const HeroContent = styled.div`
 	display: flex;
@@ -23,6 +25,11 @@ const HeroContent = styled.div`
 		margin-bottom: 1.5rem;
 	}
 	z-index: 5;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+		flex-direction: column-reverse;
+		align-items: center;
+		justify-content: flex-end;
+	}
 `
 
 const HeroTitle = styled.h1`
@@ -31,9 +38,21 @@ const HeroTitle = styled.h1`
 	font-size: 3.5rem;
 	margin: 0;
 	line-height: 4rem;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		font-size: 2rem;
+		line-height: 2rem;
+	}
 `
 
 const StyledHeroSvg = styled(HeroSvg)`
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		width: 530px;
+		height: 530px;
+	}
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		width: 300px;
+		height: 300px;
+	}
 `
 
 const LeftContainer = styled.div`
@@ -43,6 +62,11 @@ const LeftContainer = styled.div`
 
 	>*:not(:last-child){
 		margin-bottom: 1rem;
+	}
+
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+		align-items: center;
+		text-align: center;
 	}
 `
 

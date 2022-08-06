@@ -16,11 +16,18 @@ const AboutInnerContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 10rem 0;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		flex-direction: column;
+	}
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		margin-bottom: 1rem;
+		padding: 2rem 0;
+	}
 `
 
 const AboutContent = styled.div`
 	background-color: transparent;
-	padding: 10rem 0;
 `
 
 const AboutTitle = styled.h1`
@@ -28,12 +35,22 @@ const AboutTitle = styled.h1`
 	margin-bottom: 1.5rem;
 	font-size: 3.5rem;
 	color: ${(props) => props.theme.colors.darkColor};
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		margin-bottom: 1rem;
+		font-size: 2rem;
+	}
 `
 const AboutParagraph = styled.p`
 	margin: 0;
 	font-family: Mukta-Regular, sans-serif;
 	max-width: 95ch;
 	font-size: 1.125rem;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		margin-bottom: 1rem;
+	}
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		font-size: 0.875rem;
+	}
 `
 
 const SvgContainer = styled.div`
@@ -43,6 +60,19 @@ const SvgContainer = styled.div`
 	height: 25rem;
 	border-radius: 50%;
 	background-color: #cbf3f0;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		width: 20rem;
+		height: 13rem;
+	}
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+		margin-bottom: 1rem;
+	}
+`
+
+const StyledAboutSvg = styled(AboutSvg)`
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		height: 260px;
+	}
 `
 
 export const About: FC = () => {
@@ -50,6 +80,7 @@ export const About: FC = () => {
 	const aboutInnerContainerRef = useRef()
 
 	useEffect(() => {
+		if(window.innerWidth <= 800) return 
 		gsap.registerPlugin(ScrollTrigger)
 		gsap.fromTo(
 			aboutContainerRef.current,
@@ -89,7 +120,7 @@ export const About: FC = () => {
 						</AboutParagraph>
 					</AboutContent>
 					<SvgContainer>
-					<AboutSvg />
+						<StyledAboutSvg />
 					</SvgContainer>
 				</AboutInnerContainer>
 			</MainLayout>

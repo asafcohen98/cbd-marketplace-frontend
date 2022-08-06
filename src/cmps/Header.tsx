@@ -27,45 +27,30 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 	z-index: 10;
 	width: 100%;
 	height: 100%;
-	box-shadow: ${(props) =>
-		props.isSticky || props.headerType === 'shop'
-			? props.theme.boxShadows.bs2
-			: 'unset'};
-	background: ${(props) =>
-		props.headerType === 'shop'
-			? props.theme.colors.lightColor
-			: props.theme.colors.lightColor};
+	background: ${(props) => props.theme.colors.lightColor};
 	&.sticky {
 		animation: ${smoothScroll} 800ms ease-in-out;
+		box-shadow: ${(props) => props.theme.boxShadows.bs2};
 	}
 
 	svg {
 		path {
-			fill: ${(props) =>
-				props.isSticky || props.headerType === 'shop'
-					? props.theme.colors.darkColor
-					: props.theme.colors.darkColor};
+			fill: ${(props) => props.theme.colors.darkColor};
 		}
 	}
 
 	h1 {
-		color: ${(props) =>
-			props.isSticky || props.headerType === 'shop'
-				? props.theme.colors.darkColor
-				: props.theme.colors.darkColor};
+		color: ${(props) => props.theme.colors.darkColor};
 	}
 
 	a {
 		font-size: 1.5rem;
-		color: ${(props) =>
-			props.isSticky || props.headerType === 'shop' || props.isMenuOpen
-				? props.theme.colors.darkColor
-				: props.theme.colors.darkColor};
+		color: ${(props) => props.theme.colors.darkColor};
 	}
 `
 
 const HeaderContent = styled.div`
-	padding: 1.5rem 0;
+	padding: 1rem 0;
 	height: 100%;
 	display: flex;
 	width: 100%;

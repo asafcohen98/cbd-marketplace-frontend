@@ -10,6 +10,9 @@ import { ReactComponent as StepSvg } from '../assets/imgs/step.svg'
 const HIWContainer = styled.section`
 	background-color: ${(props) => props.theme.colors.lightColor};
 	padding: 10rem 0;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		padding: 2rem 0;
+	}
 `
 
 const HIWContentContainer = styled.div`
@@ -23,6 +26,9 @@ const HIWTitle = styled.h1`
 	font-size: 3.5rem;
 	color: ${(props) => props.theme.colors.darkColor};
 	margin-bottom: 2.1rem;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		font-size: 2rem;
+	}
 `
 
 const HIWSteps = styled.div`
@@ -42,6 +48,11 @@ const HIWStep = styled.div`
 	> *:not(:last-child) {
 		margin-inline-end: 1rem;
 	}
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+		> *:not(:last-child) {
+		margin-inline-end: unset;
+	}
+	}
 `
 
 const HIWStepContent = styled.div`
@@ -52,12 +63,18 @@ const HIWStepContent = styled.div`
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
 		margin-bottom: 2rem;
 	}
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		margin-bottom: 1.2rem;
+	}
 `
 const HIWStepTitle = styled.h3`
 	color: ${(props) => props.theme.colors.darkColor};
 	font-size: 2rem;
 	line-height: 1em;
 	margin-bottom: 0.5rem;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		font-size: 1rem;
+	}
 `
 
 const HIWStepParagraph = styled.p`
@@ -66,6 +83,9 @@ const HIWStepParagraph = styled.p`
 	font-size: 1.125rem;
 	max-width: 35ch;
 	margin: 0;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		font-size: 0.875rem;
+	}
 `
 
 const HIWStepNumberContainer = styled.div`
@@ -77,24 +97,18 @@ const HIWStepNumberContainer = styled.div`
 	height: 3.5rem;
 	border-radius: 50%;
 	margin-bottom: 1rem;
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		width: 2.5rem;
+	height: 2.5rem;
+	}
 `
 
 const HIWStepNumber = styled.span`
 	color: ${props => props.theme.colors.darkColor};
 	font-size: 3rem;
-	/* line-height: 1em; */
-	/* font-size: 25rem;
-	z-index: -1;
-	line-height: 0.5em;
-	position: absolute;
-	top: 0;
-	right: 50%;
-	transform: translateX(0, -50%);
-	@media only screen and (max-width: ${(props) =>
-		props.theme.breakpoints.bigTablet}) {
-		margin-bottom: 2rem;
-		/* left: 0; */
-	/* font-size: 10rem; */
+	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+		font-size: 2rem;
+	}
 `
 
 const HIWStepSvg = styled(StepSvg)`

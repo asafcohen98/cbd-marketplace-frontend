@@ -22,10 +22,10 @@ const StyledButton = styled.button<IStyledButtonProps>`
 	border-radius: ${(props) =>
 		props.variant === 'rounded' ? '0.5rem' : 'unset'};
 	${(props) =>
-		props.size === 'large' &&
+		props.size === 'small' &&
 		css`
 			padding: 0.5em 2em;
-			font-size: 1.5rem;
+			font-size: 0.875rem;
 		`}
 	${(props) =>
 		props.size === 'medium' &&
@@ -48,6 +48,7 @@ const StyledButton = styled.button<IStyledButtonProps>`
 					: props.theme.colors.lightColor};
 			transition: color, background-color 0.3s ease-in-out;
 		}
+	      
 	}
 `
 interface IButtonProps {
