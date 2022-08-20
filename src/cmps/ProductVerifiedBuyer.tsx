@@ -9,14 +9,14 @@ const VerifiedBuyerContainer = styled.div`
 	padding: 0 0.3rem;
 	display: flex;
 	align-items: center;
-	border : 0.1rem solid ${props => props.theme.colors.darkColor};
+	border : 0.1rem solid ${props => props.theme.colors.brandLightColor};
 
 	span:last-of-type {
-		color: ${(props) => props.theme.colors.darkColor};;;
+		color: ${props => props.theme.colors.brandLightColor};
 	}
 
 	svg {
-		fill: ${(props) => props.theme.colors.darkColor};
+		fill: ${props => props.theme.colors.brandLightColor};
 		margin-inline-end: 0.2rem;
 	}
 `
@@ -41,6 +41,7 @@ const VerifiedBuyerReview = styled.div<IVerifiedBuyerReviewProps>`
 	position: absolute;
 	background-color: #12121298;
 	transition: all 0.3s ease-in-out;
+	margin-bottom: 0.5rem;
 
 	>*:not(:last-child){
 		margin-bottom: 0.5rem;

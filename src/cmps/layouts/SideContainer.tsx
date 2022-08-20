@@ -28,7 +28,7 @@ const StyledSideContainer = styled.aside<IStyledSideContainer>`
 		width: 70%;
 		background-color: ${(props) => props.theme.colors.lightColor};
 		z-index: 8;
-		box-shadow: ${(props) => props.theme.boxShadows.bs2};
+
 	}
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
 		width: 85%;

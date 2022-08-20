@@ -9,9 +9,6 @@ const RangePriceContainer = styled.form``
 const RangePrice = styled.div`
 	display: flex;
     padding: 0 1rem;
-	> *:not(:last-child) {
-		margin-inline-end: 0.5rem;
-	}
 `
 
 const RangePriceInput = styled.input`
@@ -23,7 +20,6 @@ const RangePriceInput = styled.input`
 		margin: 0;
 	}
 	width: 100px;
-	margin-bottom: 0.5rem;
 `
 interface IRangePriceFilterProps {
 	minPrice: number | string

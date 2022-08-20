@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { MainLayout } from './layouts/MainLayout'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'

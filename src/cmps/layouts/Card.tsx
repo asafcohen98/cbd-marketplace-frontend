@@ -6,7 +6,7 @@ const StyledCard = styled.article`
 	color: ${(props) => props.theme.colors.darkColor};
 	display: flex;
 	flex-direction: column;
-	box-shadow: ${(props) => props.theme.boxShadows.bs2};
+	box-shadow: ${(props) => props.theme.boxShadows.bs3};
 
 	>*:not(:last-child){
 		margin-bottom: 0.5rem;

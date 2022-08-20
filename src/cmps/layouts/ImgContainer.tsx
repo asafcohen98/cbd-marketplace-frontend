@@ -6,6 +6,7 @@ const StyledImgContainer = styled.div`
 	height: 200px;
 	object-fit: contain;
 	overflow: hidden;
+    padding: 1rem;
 	img {
 		width: 100%;
 		height: 100%;

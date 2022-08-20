@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useRef } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs'
 import ReactPaginate from 'react-paginate'
 import styled from 'styled-components'
@@ -46,7 +46,7 @@ const Pagination = styled(ReactPaginate)`
 	}
 
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-		font-size: 1.2rem;
+		font-size: 0.875rem;
 	}
 `
 
@@ -61,7 +61,8 @@ export const ProductPagination: FC<IProductPaginationProps> = ({
 	pageCount,
 	onSetFilter,
 }) => {
-	// const pageRef = useRef(null)
+
+	const [pageRangeDisplayed,setPageRangeDisplayed] = useState<number>(3)
 
 	const handleChange = useCallback(
 		({ selected }) => {
@@ -69,6 +70,10 @@ export const ProductPagination: FC<IProductPaginationProps> = ({
 		},
 		[onSetFilter]
 	)
+
+	useEffect(() => {
+            if(window.innerWidth <= 800) setPageRangeDisplayed(1)
+	},[])
 
 	return (
 		<PaginationContainer>
@@ -78,7 +83,7 @@ export const ProductPagination: FC<IProductPaginationProps> = ({
 				previousLabel={<BsArrowLeft />}
 				nextLabel={<BsArrowRight />}
 				onPageChange={handleChange}
-				pageRangeDisplayed={4}
+				pageRangeDisplayed={pageRangeDisplayed}
 				pageCount={pageCount}
 				renderOnZeroPageCount={null}
 			/>

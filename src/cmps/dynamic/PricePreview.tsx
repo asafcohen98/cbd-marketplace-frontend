@@ -12,7 +12,6 @@ const StyledPricePreview = styled.span<IStyledPricePreview>`
 			: props.theme.colors.darkColor};
 	font-family: Mukta-Regular, sans-serif;
 	font-size: 1.2rem;
-
 	padding: 0 0.5rem;
 	text-decoration: ${(props) => (props.inSale ? 'line-through' : 'none')};
 `

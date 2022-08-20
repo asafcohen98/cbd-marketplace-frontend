@@ -22,9 +22,7 @@ const ProductContentContainer = styled.div`
 const ProductReviewContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
-	> *:not(:last-child) {
-		margin-inline-end: 0.5rem;
-	}
+	margin-bottom: 0.5rem;
 `
 
 interface IProductPreviewProps {

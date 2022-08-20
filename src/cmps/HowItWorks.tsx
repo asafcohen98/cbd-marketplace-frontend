@@ -98,17 +98,14 @@ const HIWStepNumberContainer = styled.div`
 	border-radius: 50%;
 	margin-bottom: 1rem;
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-		width: 2.5rem;
+	width: 2.5rem;
 	height: 2.5rem;
 	}
 `
 
 const HIWStepNumber = styled.span`
 	color: ${props => props.theme.colors.darkColor};
-	font-size: 3rem;
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-		font-size: 2rem;
-	}
+	font-size: 2rem;
 `
 
 const HIWStepSvg = styled(StepSvg)`

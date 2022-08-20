@@ -8,7 +8,7 @@ const StyledTopPanelContainer = styled.div`
     width: 100%;
     margin-top: 1rem;
 
-    @media only screen and (max-width: ${(props) =>	props.theme.breakpoints.tablet}) {
+    @media only screen and (max-width: ${(props) =>	props.theme.breakpoints.bigTablet}) {
         margin-bottom : 0.5rem ;
 	}
 `

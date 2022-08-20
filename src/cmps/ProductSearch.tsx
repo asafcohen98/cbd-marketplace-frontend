@@ -8,7 +8,7 @@ import { IFilterBy } from '../interfaces/IFilterBy.interface'
 const StyledForm = styled.form`
 	align-items: center;
 	display: flex;
-	box-shadow: ${(props) => props.theme.boxShadows.bs2};
+	box-shadow: ${(props) => props.theme.boxShadows.bs3};
 	padding: 1rem;
 
 	> *:not(:last-child) {

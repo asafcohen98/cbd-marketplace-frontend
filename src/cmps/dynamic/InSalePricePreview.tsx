@@ -7,7 +7,6 @@ const PriceContainer = styled.div`
 	display: flex;
     flex-direction: column;
 	line-height: 1.5rem;
-	margin-bottom: 0.5rem;
 `
 
 interface IInSalePricePreviewProps {

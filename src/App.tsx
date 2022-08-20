@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
+import {NotFound } from './pages/NotFound'
 import { Shop } from './pages/Shop'
 import { Home } from './pages/Home'
 
@@ -16,6 +17,7 @@ const App: FC = () => {
 				<Routes>
 					<Route path='/shop' element={<Shop />} />
 					<Route  path='/' element={<Home />} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 				<Footer/>
 			</MainLayout>

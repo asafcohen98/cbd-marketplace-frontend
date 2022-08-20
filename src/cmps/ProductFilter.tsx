@@ -17,7 +17,7 @@ const FilterContainer = styled.div`
 	color: ${(props) => props.theme.colors.darkColor};
 	padding: 1rem 0 ;
 	flex : 1;
-	box-shadow: ${(props) => props.theme.boxShadows.bs2};
+	box-shadow: ${(props) => props.theme.boxShadows.bs3};
 	> *:not(:last-child) {
 		margin-bottom: 1rem;
 	}

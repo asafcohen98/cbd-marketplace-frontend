@@ -15,7 +15,6 @@ const StyledRangePricePreview = styled.span<IStyledPricePreview>`
 	text-decoration: ${(props) => (props.inSale ? 'line-through' : 'none')};
 	padding: 0 0.5rem;
 	line-height: 1.5rem;
-	margin-bottom: 0.5rem;
 `
 
 interface IRangePricePreviewProps {

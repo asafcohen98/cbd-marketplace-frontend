@@ -4,7 +4,8 @@ declare module 'styled-components' {
     export interface DefaultTheme {
         boxShadows: {
             bs1: string,
-            bs2: string
+            bs2: string,
+            bs3 : string
         },
         borders: {
             rounded: string,

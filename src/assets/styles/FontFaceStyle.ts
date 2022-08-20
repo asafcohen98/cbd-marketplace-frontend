@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import MuktaLightTTF from '../fonts/Mukta-Light.ttf'
-import MuktaRegularTTF from '../fonts/Mukta-Regular.ttf'
+import MuktaLightTTF from '../fonts/Heebo-Light.ttf'
+import MuktaRegularTTF from '../fonts/Heebo-Regular.ttf'
 import SingleDayRegular from '../fonts/SingleDay-Regular.ttf'
 
 

@@ -49,6 +49,16 @@ export const NavBar: FC<INavBarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
 		setIsMenuOpen(false)
 	}, [location])
 
+	const onScrollIntoView = (el) => {
+		const headerOffset = 115
+		const elementPosition = el.getBoundingClientRect().top
+		const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		})
+	}
+
 	return (
 		<>
 			<ScreenOverlay
@@ -56,8 +66,12 @@ export const NavBar: FC<INavBarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
 				isMenuOpen={isMenuOpen}
 			/>
 			<StyledNavBar isMenuOpen={isMenuOpen}>
-				<StyledLink to='/#about'>About</StyledLink>
-				<StyledLink to='/#howItWorks'>How it works</StyledLink>
+				<StyledLink scroll={onScrollIntoView} to='/#about'>
+					About
+				</StyledLink>
+				<StyledLink scroll={onScrollIntoView} to='/#howItWorks'>
+					How it works
+				</StyledLink>
 			</StyledNavBar>
 		</>
 	)

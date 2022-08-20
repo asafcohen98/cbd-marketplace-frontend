@@ -22,11 +22,12 @@ interface IHeaderContainerProps {
 
 const HeaderContainer = styled.header<IHeaderContainerProps>`
 	height: 10vh;
+	height: 100%;
+	padding: 0.5rem;
 	position: ${(props) => (props.isSticky ? 'sticky' : 'relative')};
 	top: 0;
 	z-index: 10;
 	width: 100%;
-	height: 100%;
 	background: ${(props) => props.theme.colors.lightColor};
 	&.sticky {
 		animation: ${smoothScroll} 800ms ease-in-out;
@@ -53,7 +54,6 @@ const HeaderContainer = styled.header<IHeaderContainerProps>`
 `
 
 const HeaderContent = styled.div`
-	padding: 1rem 0;
 	height: 100%;
 	display: flex;
 	width: 100%;
