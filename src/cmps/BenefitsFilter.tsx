@@ -1,7 +1,4 @@
-import {
-	FC,
-	useCallback
-} from 'react'
+import { FC, useCallback } from 'react'
 
 import styled from 'styled-components'
 import { TbHeartPlus } from 'react-icons/tb'
@@ -23,21 +20,21 @@ const BenefitsForm = styled.form`
 	padding: 0 1rem;
 	flex-direction: column;
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
-            overflow-y: auto;
-			max-height: 11rem;
-			::-webkit-scrollbar {
-		width: 18px;
-	}
+		overflow-y: auto;
+		max-height: 9rem;
+		::-webkit-scrollbar {
+			width: 18px;
+		}
 
-	::-webkit-scrollbar-track {
-		background: ${(props) => props.theme.colors.lightColor};
-	}
+		::-webkit-scrollbar-track {
+			background: ${(props) => props.theme.colors.lightColor};
+		}
 
-	::-webkit-scrollbar-thumb {
-		background-color: ${(props) => props.theme.colors.brandLightColor};
-		border-radius: 10px;
-		border: 5px solid #ffffff;
-	}
+		::-webkit-scrollbar-thumb {
+			background-color: ${(props) => props.theme.colors.brandLightColor};
+			border-radius: 10px;
+			border: 5px solid #ffffff;
+		}
 	}
 `
 

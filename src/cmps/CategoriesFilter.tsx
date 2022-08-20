@@ -32,12 +32,12 @@ const SubCategoriesContainer = styled.div<ICategoryNameProps>`
 	display: flex;
 	flex-direction: column;
 	padding-inline-start: 2rem;
-	padding-top: 0.1rem;
-	padding-bottom: 0.1rem;
+	padding-bottom: ${props => props.isExpended ? '0.5rem' : 0};
+	padding-top: ${props => props.isExpended ? '0.5rem' : 0};
 	background-color: #8383830a;
-	transition: opacity 0.4s ,max-height 0.4s ;
+	transition: all 0.4s ease-in-out ;
 	> *:not(:last-child) {
-		margin-bottom: 0.1rem;
+		margin-bottom: 0.5rem;
 	}
 `
 
@@ -105,7 +105,7 @@ export const CategoriesFilter: FC<ICategoriesFilterProps> = ({
 							{category.name}
 							<IoIosArrowForward size='0.875rem' />
 						</TopCategory>
-						<SubCategoriesContainer
+						{!!category.children.length && <SubCategoriesContainer
 							isExpended={category._id === expendedCategory}>
 							{category.children.map((subCategory) => {
 								return (
@@ -118,7 +118,7 @@ export const CategoriesFilter: FC<ICategoriesFilterProps> = ({
 									</SubCategoryTitle>
 								)
 							})}
-						</SubCategoriesContainer>
+						</SubCategoriesContainer>}
 					</CategoryContainer>
 				)
 			})}
