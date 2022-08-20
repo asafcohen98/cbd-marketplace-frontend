@@ -28,7 +28,7 @@ const HeroContent = styled.div`
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
 		flex-direction: column-reverse;
 		align-items: center;
-		justify-content: flex-end;
+		justify-content: center;
 	}
 `
 

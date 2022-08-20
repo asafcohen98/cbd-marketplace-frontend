@@ -66,7 +66,7 @@ export const Footer: FC = () => {
 			<MainLayout>
 				<FooterContent>
 					<FooterTitle>
-						www.sloth-cbd.com is the best source site to compare CBD Products
+						www.thesloth.online is the best source site to compare CBD Products
 						prices
 					</FooterTitle>
 					<FooterParagraph>
@@ -78,7 +78,7 @@ export const Footer: FC = () => {
 						accessible and user - friendly to everyone. All CBD brands on our
 						website have their own disclaimer and terms please check them out
 						before buying any products. For any questions, please contact our
-						support team by email: contact@sloth-cbd.com.
+						support team by email: hello@thesloth.online
 					</FooterParagraph>
 					<FooterSocial>
 						<SocialContainer>
@@ -89,7 +89,7 @@ export const Footer: FC = () => {
 						</SocialContainer>
 					</FooterSocial>
 					<FooterCopyright>
-						Contact@sloth-cbd.com is the best source site to compare CBD
+					    hello@thesloth.online is the best source site to compare CBD
 						Products prices 2022 Sloth-cbd all rights reserved
 					</FooterCopyright>
 				</FooterContent>

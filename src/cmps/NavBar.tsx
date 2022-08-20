@@ -1,5 +1,5 @@
 import { Dispatch, FC, SetStateAction, useEffect } from 'react'
-import { HashLink } from 'react-router-hash-link'
+import { NavHashLink } from 'react-router-hash-link'
 import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -32,9 +32,9 @@ const StyledNavBar = styled.nav<IStyledNavBarProps>`
 	}
 `
 
-const StyledLink = styled(HashLink)`
+const StyledLink = styled(NavHashLink)`
 	text-decoration: none;
-	font-size: 1.2rem;
+	font-size: 1rem;
 `
 
 interface INavBarProps {
@@ -66,6 +66,9 @@ export const NavBar: FC<INavBarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
 				isMenuOpen={isMenuOpen}
 			/>
 			<StyledNavBar isMenuOpen={isMenuOpen}>
+				<StyledLink to='/shop'>
+					Shop
+				</StyledLink>
 				<StyledLink scroll={onScrollIntoView} to='/#about'>
 					About
 				</StyledLink>
