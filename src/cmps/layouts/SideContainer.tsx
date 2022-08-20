@@ -44,6 +44,7 @@ export const SideContainer: FC<ISideContainerProps> = ({
 	isFilterPanelOpen,
 	children,
 }) => {
+	
 	return (
 		<StyledSideContainer isFilterPanelOpen={isFilterPanelOpen}>
 			{children}

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { BiCategory } from 'react-icons/bi'
 import { IoIosArrowForward } from 'react-icons/io'
@@ -78,16 +78,16 @@ export const CategoriesFilter: FC<ICategoriesFilterProps> = ({
 	selectedCategory,
 	onSetFilter,
 }) => {
+
 	const [expendedCategory, setExpendedCategory] = useState<string>('')
 
-	const changeExpendedCategory = (categoryId) => {
+	const changeExpendedCategory = useCallback((categoryId) => {
 		if (expendedCategory === categoryId) {
 			setExpendedCategory('')
 		} else {
 			setExpendedCategory(categoryId)
 		}
-	}
-     console.log('render categories');
+	},[expendedCategory])
 	 
 	return (
 		<CategoriesContainer>

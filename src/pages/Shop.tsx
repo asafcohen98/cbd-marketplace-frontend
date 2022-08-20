@@ -81,7 +81,6 @@ export const Shop: FC = () => {
 	}
 
 	const getFiltersFromSearchParams = useMemo(() => {
-		console.log('getFiltersFromSearchParams !!')
 		const copyOfFilterBy = { ...filterBy }
 		const filterFromQuery = Object.fromEntries(searchParams)
 		if (Object.keys(filterFromQuery).length) {
@@ -100,7 +99,6 @@ export const Shop: FC = () => {
 	}, [])
 
 	useEffect(() => {
-		console.log('mounted !')
 		;(async () => {
 			await loadCategories()
 			await loadBenefits()
@@ -125,19 +123,18 @@ export const Shop: FC = () => {
 			value = Array.isArray(value) ? [...value] : value
 			const newFilter = { ...filterBy, [field]: value }
 			if (field !== 'page') newFilter.page = 0
-			console.log('newFilter', newFilter)
 			const queryParams = {
 				...newFilter,
 				benefits: newFilter.benefits.join(','),
 				page: `${newFilter.page}`,
 			}
+			if (field === 'category' && isFilterPanelOpen) setIsFilterPanelOpen(false)
 			setFilterBy(newFilter)
 			setSearchParams(queryParams)
-			if (field === 'category' && isFilterPanelOpen) setIsFilterPanelOpen(false)
 			await loadProducts(newFilter)
 			setIsLoading(false)
 		},
-		[filterBy]
+		[filterBy,isFilterPanelOpen]
 	)
 
 	const clearFilter = useCallback(async () => {
