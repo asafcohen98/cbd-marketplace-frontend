@@ -21,9 +21,10 @@ const Image = styled.img<IImageProps>`
 
 interface IProductImgProps {
 	imgSrc: string
+	imgTitle : string
 }
 
-export const ProductImg: FC<IProductImgProps> = ({ imgSrc }) => {
+export const ProductImg: FC<IProductImgProps> = ({ imgSrc,imgTitle }) => {
 	const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false)
 	const [currImg, setCurrImg] = useState<string>(imgSrc)
 
@@ -39,6 +40,10 @@ export const ProductImg: FC<IProductImgProps> = ({ imgSrc }) => {
 				onLoad={() => setIsImgLoaded(true)}
 				onError={onImgFailedLoad}
 				src={currImg}
+				width="270"
+				height="170"
+				title={imgTitle}
+				loading="eager"
 				alt='cbd'
 			/>
 		</ImgContainer>

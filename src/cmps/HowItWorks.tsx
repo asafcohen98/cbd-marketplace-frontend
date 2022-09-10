@@ -20,7 +20,7 @@ const HIWContentContainer = styled.div`
 	flex-direction: column;
 `
 
-const HIWTitle = styled.h1`
+const HIWTitle = styled.h2`
 	line-height: 1em;
 	margin-bottom: 1.5rem;
 	font-size: 3.5rem;
@@ -129,7 +129,7 @@ export const HowItWorks: FC = () => {
 			hiwContainerRef.current,
 			{
 				opacity: 0,
-				x: 100,
+				y: 100,
 			},
 			{
 				scrollTrigger: {
@@ -137,7 +137,7 @@ export const HowItWorks: FC = () => {
 					start: 'top 50%',
 				},
 				opacity: 1,
-				x: 0,
+				y: 0,
 				duration: 2,
 			}
 		)

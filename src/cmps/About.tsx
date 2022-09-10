@@ -30,7 +30,7 @@ const AboutContent = styled.div`
 	background-color: transparent;
 `
 
-const AboutTitle = styled.h1`
+const AboutTitle = styled.h2`
 	line-height: 1em;
 	margin-bottom: 1.5rem;
 	font-size: 3.5rem;

@@ -22,6 +22,7 @@ import { SortDropdown } from '../cmps/SortDropdown'
 import { ProductPagination } from '../cmps/ProductPagination'
 import { Loader } from '../cmps/Loader'
 import { ScreenOverlay } from '../cmps/ScreenOverlay'
+import { ShopMetaTags } from '../meta-cmps/ShopMetaTags'
 
 export const Shop: FC = () => {
 	const [filterBy, setFilterBy] = useState<IFilterBy>({
@@ -170,6 +171,7 @@ export const Shop: FC = () => {
 		)
 	return (
 		<>
+		    <ShopMetaTags/>
 			<ScreenOverlay
 				handleClick={toggleFilterPanel}
 				isFilterPanelOpen={isFilterPanelOpen}

@@ -45,10 +45,10 @@ const HeroTitle = styled.h1`
 `
 
 const StyledHeroSvg = styled(HeroSvg)`
-	@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
-		width: 530px;
-		height: 530px;
-	}
+@media only screen and (max-width: ${(props) => props.theme.breakpoints.bigTablet}) {
+	width: 530px;
+	height: 530px;
+}
 	@media only screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
 		width: 300px;
 		height: 300px;
